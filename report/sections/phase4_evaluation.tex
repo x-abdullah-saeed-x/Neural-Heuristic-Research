@@ -61,27 +61,27 @@ During deterministic $A^\ast$ execution, we measure:
 
 \subsection{Training Dynamics and Convergence}
 The multi-task PyTorch network (\trHiddenDims{} hidden units, \trParams{} parameters) was trained with
-early stopping on the training split; Section~\ref{sec:phase3_training} gives the full protocol. Figure~\ref{fig:training_curves}
+early stopping on the training split; Section~\ref{sec:phase3_training} gives the full protocol. Figure~\ref{fig:training_panels}
 illustrates the convergence trajectories across training epochs.
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\textwidth]{figures/training_loss.png}
-        \caption{Loss (smooth L1)}
+        \caption{Multi-task loss}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\textwidth]{figures/training_mae.png}
-        \caption{MAE ($h^\ast/N$)}
+        \caption{Validation MAE}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\textwidth]{figures/training_bin_accuracy.png}
-        \caption{10-Bin Accuracy}
+        \caption{Validation 10-bin accuracy}
     \end{subfigure}
-    \caption{Training and validation performance dynamics across learning epochs.}
-    \label{fig:training_curves}
+    \caption{Training and validation dynamics of the primary run (seed 42), plotted from \texttt{history.csv}.}
+    \label{fig:training_panels}
 \end{figure}
 
 The primary run (seed 42) reached its best validation MAE of \trValMAE{} and 10-bin accuracy of \trValBinAcc{} at

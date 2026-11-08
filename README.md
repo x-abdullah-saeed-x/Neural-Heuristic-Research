@@ -4,7 +4,7 @@
 **Track:** B (Research & Development)  
 **Deliverable:** 2 (Model Architecture & Empirical Evaluation)  
 **Repository:** [https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research](https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research)  
-**Integration Branch:** `deliverable-2`
+**Branch:** `main`
 
 ## Team Members & Responsibilities
 - **Abdullah Zia** (Evaluation, Analysis, and Report Lead) — A* search engine, evaluation harness, baselines, metric frameworks, fallback neural models, error & environmental bias analysis, publication figures, report integration.
@@ -72,10 +72,9 @@ Deliverable 2 is implemented and benchmarked. **Headline finding: the hypothesis
 ## Installation & CPU Environment Setup
 
 ```powershell
-# Clone the repository and checkout deliverable-2
+# Clone the repository (all work is on main)
 git clone https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research.git
 cd Neural-Heuristic-Research
-git checkout deliverable-2
 
 # Create and activate virtual environment
 python -m venv .venv
@@ -99,6 +98,7 @@ python data_scripts/generate_mazes.py --num-per-config 50 --seed 42
 python data_scripts/compute_labels.py
 python data_scripts/clean_data.py
 python data_scripts/features.py
+python scripts/make_split_manifest.py
 ```
 
 ### 2. Run Test Suite
@@ -120,6 +120,20 @@ python scripts/run_baselines.py --split test --output results/evaluation
 # Run full neural benchmark, alpha sweep, and cell metrics
 python scripts/run_evaluation.py --backend sklearn --split test --output results/evaluation
 ```
+
+```powershell
+# Ablations: obstacle density, model size (1/2/4 layers), gamma in [0.5, 1.5]
+python scripts/run_ablations.py --samples 50000 --max-iter 30
+```
+
+### 4b. PyTorch Tuning and Final Training (GPU recommended)
+```powershell
+python -m src.tune --config configs/tuning_grid.yaml
+python scripts/make_final_config.py
+python scripts/train_final.py
+python scripts/make_training_report_assets.py
+```
+Note: the A* benchmark above uses the scikit-learn fallback MLP; the PyTorch checkpoints are not yet wired into `run_evaluation.py`.
 
 ### 5. Figures and LaTeX Tables
 ```powershell
@@ -152,4 +166,6 @@ Trained model checkpoints are hosted on the Hugging Face Hub (per non-negotiable
 ## Known Limitations
 1. **Synthetic Static Environments:** The current dataset models 2D static grid environments with uniform cost 1.0. Dynamic obstacles or variable terrain friction are not modeled.
 2. **Local Feature Receptive Field:** The 5$\times$5 local wall context provides strong local obstacle impedance cues, but long-range topological cul-de-sacs require global distance coordinates ($x/N, y/N$) and goal offsets for orientation.
-3. **Overestimation & Admissibility:** Raw unconstrained neural network predictions can overestimate geodesic distances. When absolute shortest-path optimality is strictly required, scaling $\alpha \le 0.8$ or clipping with the Manhattan distance ensures optimal path discovery.
+3. **Overestimation & Admissibility:** Raw unconstrained neural network predictions can overestimate geodesic distances. Scaling $\alpha < 1$ or clipping with the Manhattan distance reduces but does not eliminate sub-optimality (best observed mean optimality ratio 1.001 with clipping, 1.019 at $\alpha = 0.8$); 58% of test cells are overestimated.
+4. **Hypothesis Not Supported:** No neural variant expands fewer nodes than Manhattan A* on the test mazes, and once inference time is counted the neural variants are slower (see Deliverable 2 Status).
+5. **Evaluation Model:** All reported offline metrics and A* results use the scikit-learn MLP (64,64), not the PyTorch 256-256-128 network.
