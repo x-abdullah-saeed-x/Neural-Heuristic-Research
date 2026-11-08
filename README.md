@@ -69,28 +69,64 @@ Deliverable 2 is implemented and benchmarked. **Headline finding: the hypothesis
 
 ---
 
-## Installation & CPU Environment Setup
+## Installation & Local Setup
 
-```powershell
-# Clone the repository (all work is on main)
+### Prerequisites
+- **Python 3.10 or newer** and **Git**. No GPU is needed; everything except PyTorch tuning and training runs on a normal laptop CPU.
+- About 2 GB of free disk space (generated data, results, and PyTorch).
+- Optional, only to rebuild the PDF report: a LaTeX distribution (MiKTeX or TeX Live) providing `pdflatex`.
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research.git
 cd Neural-Heuristic-Research
+```
+All work is on the `main` branch.
 
-# Create and activate virtual environment
+### 2. Create and activate a virtual environment
+Windows PowerShell:
+```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-
-# Install CPU PyTorch (if using PyTorch backend)
-pip install torch --index-url https://download.pytorch.org/whl/cpu
-
-# Install core dependencies and pytest
-pip install -r requirements.txt
-pip install scipy pytest
 ```
+(If PowerShell blocks the script, run `Set-ExecutionPolicy -Scope Process Bypass` first.)
+
+Windows cmd:
+```
+python -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+Linux / macOS:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+Install the CPU build of PyTorch first (small download), then everything else:
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
+```
+`requirements.txt` covers numpy, pandas, scikit-learn, scipy, matplotlib, PyYAML, joblib, tqdm, huggingface_hub, and pytest.
+
+### 4. Check the install
+```bash
+pytest -q
+```
+Tests that need generated data are skipped until you run the pipeline below.
+
+### Quick look without re-running anything
+All final results are committed: see `results/evaluation/test_summary.json`, `results/ablations/*.csv`, `results/training/final_summary.json`, the figures in `figures/`, and the compiled report `report/Neural_Heuristic_Research.pdf`.
+
+> **Note:** the generated datasets (`data/cleaned`, `data/processed`) and trained model files (`models/`) are not stored in Git. The pipeline below recreates them deterministically (seed 42). Data generation and the scikit-learn models take minutes; PyTorch tuning and final training take hours on a CPU.
 
 ---
 
 ## Reproducing the Pipeline
+
+Run every command from the repository root with the virtual environment active. Lines starting with `#` are comments; they work in PowerShell and bash, but in Windows cmd skip them.
 
 ### 1. Data Pipeline
 ```powershell
@@ -143,6 +179,25 @@ python scripts/make_figures.py
 # Refresh LaTeX table snippets
 python scripts/results_to_latex.py
 ```
+
+### 6. Rebuilding the PDF Report (optional)
+Run from the repository root, not from `report/`.
+
+Windows cmd:
+```
+set TEXINPUTS=.;report;
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+copy /Y report\main.pdf report\Neural_Heuristic_Research.pdf
+```
+Linux / macOS:
+```bash
+export TEXINPUTS=.:report:
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+cp report/main.pdf report/Neural_Heuristic_Research.pdf
+```
+Run `pdflatex` twice so cross-references resolve.
 
 ---
 
