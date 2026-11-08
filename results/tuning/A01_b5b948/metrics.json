@@ -1,0 +1,14 @@
+{
+  "checkpoint": "results/tuning\\A01_b5b948\\best.pt",
+  "run_dir": "results/tuning\\A01_b5b948",
+  "best_epoch": 5,
+  "best_val_mae": 0.05578689591488749,
+  "best_val_bin_accuracy": 0.67432,
+  "best_val_macro_f1": 0.6733163072432794,
+  "epochs_run": 5,
+  "stopped_early": false,
+  "n_params": 107787,
+  "train_seconds": 44.831981900002575,
+  "seed": 42,
+  "git_commit": "d25e1bdcfbac0844dc1df368ac34298e0adbf7b4"
+}

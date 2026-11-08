@@ -20,11 +20,11 @@ This project investigates learned neural heuristics for graph-search pathfinding
 ---
 
 ## Deliverable 2 Status
-Deliverable 2 is fully implemented, verified, and benchmarked:
+Deliverable 2 is implemented and benchmarked. **Headline finding: the hypothesis is not supported by our results** (see Online Search below):
 - **Phase 3 (Model Architecture & Training):** Multi-task neural architecture (29 input features $\to$ 256 $\to$ 256 $\to$ 128 $\to$ continuous target regression $h^\ast/N$ + 10-bin distance classification logits). Supported via both PyTorch and rubric-compliant scikit-learn MLP fallback runtimes.
-- **Phase 4 (Empirical Evaluation):** Benchmark on 282 unseen test mazes across Dijkstra, Manhattan, Oracle, and Neural heuristic configurations ($\alpha$-scaling sweep and Manhattan clipping).
-- **Offline Metrics:** High regression correlation ($R^2 = 0.8597$, $r = 0.9272$) and strong 10-bin decile discrimination (OvR Macro AUC-ROC = 0.9444).
-- **Online Search:** Neural Clipped Manhattan achieves 100% success rate with an optimality ratio of 1.001 and sub-2 ms latency per maze.
+- **Phase 4 (Empirical Evaluation):** Benchmark on 282 unseen test mazes across Dijkstra, Manhattan, Euclidean, Oracle, and Neural heuristic configurations ($\alpha$/$\gamma$-scaling sweep over [0.5, 1.5] and Manhattan clipping), plus ablations (obstacle density, model size 1/2/4 layers, $\gamma$) in `results/ablations/`. Reported search results use the scikit-learn MLP (64,64); the PyTorch model is not used in the A* benchmark.
+- **Offline Metrics:** High regression correlation ($R^2 = 0.8598$, $r = 0.9276$) and 10-bin decile discrimination (OvR Macro AUC-ROC = 0.951). However 58% of test cells are overestimated by more than 0.5 cells (mean overestimate 1.9 cells), so the heuristic is not empirically admissible.
+- **Online Search:** All variants solve 100% of mazes, but none beats Manhattan A* (180.8 mean expansions, 2.4 ms). Raw neural (alpha=1.0) expands 561.5 nodes (3.1x more, optimality 1.034); neural clipped to Manhattan expands 189.3 (4.7% more, optimality 1.001); only the inadmissible gamma=1.5 reaches 213.6 expansions at 1.068 optimality. Latency now includes the network forward pass: clipped neural takes about 16 ms per maze vs 2.4 ms for Manhattan, so the learned heuristic is slower end to end.
 
 ---
 

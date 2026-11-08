@@ -1,0 +1,20 @@
+\begin{table}[H]
+\centering
+\caption{Hyperparameter search space and the configuration selected by the staged search.}
+\label{tab:tuning_space}
+\begin{tabular}{lll}
+\toprule
+Hyperparameter & Values tested & Selected \\
+\midrule
+Hidden layer widths & (128,128), (256,256), (256,256,128), (512,256) & (256,256,128) \\
+Activation & relu, gelu & relu \\
+Dropout & 0, 0.1, 0.2 & 0.1 \\
+Batch size & 256, 1024, 2048 & 1024 \\
+Learning rate & $10^{-4}$, $3\times10^{-4}$, $10^{-3}$ & $3\times10^{-4}$ \\
+Weight decay & 0, $10^{-5}$, $10^{-4}$ & $10^{-5}$ \\
+Regression loss & mse, smooth\_l1 & smooth\_l1 \\
+Auxiliary loss weight $\lambda$ & 0, 0.1, 0.5 & 0.1 \\
+Target transform & raw, standardised & standardised \\
+\bottomrule
+\end{tabular}
+\end{table}

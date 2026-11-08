@@ -1,0 +1,14 @@
+{
+  "checkpoint": "results/tuning\\A09_badcce\\best.pt",
+  "run_dir": "results/tuning\\A09_badcce",
+  "best_epoch": 2,
+  "best_val_mae": 0.06194759243968874,
+  "best_val_bin_accuracy": 0.10421,
+  "best_val_macro_f1": 0.05628633825126657,
+  "epochs_run": 5,
+  "stopped_early": false,
+  "n_params": 149515,
+  "train_seconds": 65.26462389998778,
+  "seed": 42,
+  "git_commit": "d25e1bdcfbac0844dc1df368ac34298e0adbf7b4"
+}
