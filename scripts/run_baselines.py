@@ -13,7 +13,7 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.evaluate import iter_split_mazes, run_search_evaluation
-from src.search import ManhattanHeuristic, OracleHeuristic, ZeroHeuristic
+from src.search import EuclideanHeuristic, ManhattanHeuristic, OracleHeuristic, ZeroHeuristic
 
 logging.basicConfig(
     level=logging.INFO,
@@ -84,6 +84,7 @@ def main():
     heuristics = {
         "dijkstra": lambda m: ZeroHeuristic(),
         "manhattan": lambda m: ManhattanHeuristic(m["goal"]),
+        "euclidean": lambda m: EuclideanHeuristic(m["goal"]),
         "oracle": lambda m: OracleHeuristic(m["h_star"]),
     }
 
