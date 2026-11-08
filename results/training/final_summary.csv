@@ -1,0 +1,4 @@
+seed,role,checkpoint,train_cells_per_epoch,epochs_planned,epochs_run,best_epoch,stopped_early,best_val_mae,best_val_bin_accuracy,best_val_macro_f1,n_params,train_seconds,git_commit,model_source
+42,primary,models/neural_heuristic_seed42.pt,all,20,11,6,True,0.051611756446506035,0.7501651181264002,0.7502818120321975,107787,1310.5057616999984,d25e1bdcfbac0844dc1df368ac34298e0adbf7b4,hamid
+43,replicate,models/neural_heuristic_seed43.pt,1000000,20,15,10,True,0.05222413524096203,0.7359772315491651,0.7359732446795262,107787,434.8235447999905,d25e1bdcfbac0844dc1df368ac34298e0adbf7b4,hamid
+44,replicate,models/neural_heuristic_seed44.pt,1000000,20,18,13,True,0.05147063934977438,0.7431052025597772,0.7432313567374693,107787,526.9634029000008,d25e1bdcfbac0844dc1df368ac34298e0adbf7b4,hamid

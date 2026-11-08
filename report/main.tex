@@ -42,10 +42,11 @@ with a neural-network-guided A$^\ast$ on complex procedurally generated grid maz
 We introduce a multi-task neural network operating on 29 local and global spatial features
 to jointly regress continuous geodesic distances ($h^\ast/N$) and predict auxiliary 10-bin distance
 deciles. Evaluated across 282 unseen test environments against Dijkstra and exact Oracle bounds,
-the neural heuristic achieves strong predictive fidelity ($R^2 = 0.8597$, OvR Macro AUC-ROC = $0.9444$).
-Integrated into search with Manhattan clipping, the neural heuristic achieves a 100\% problem
-solving rate, an optimality ratio of $1.001$, and sub-2 millisecond search latency per maze,
-providing empirical validation of learned heuristic pathfinding on obstructed topologies.
+the neural heuristic achieves strong predictive fidelity ($R^2 = 0.8598$, OvR Macro AUC-ROC = $0.951$)
+but is not admissible (58\% of cells overestimated). Integrated into A$^\ast$, all variants solve 100\%
+of mazes, yet none expands fewer nodes than Manhattan (180.8): raw neural expands 561.5, neural
+clipped to Manhattan 189.3 (optimality $1.001$), and including network inference the clipped variant
+is about 7$\times$ slower per maze. Our hypothesis is therefore not supported on static grid mazes.
 \end{abstract}
 
 % ===========================================================================
@@ -454,10 +455,12 @@ Deliverable~2 successfully establishes the model architecture, multi-task optimi
 framework, and rigorous empirical evaluation comparing classical graph-search heuristics
 with learned neural heuristics. Across 282 unseen test environments spanning diverse obstacle
 densities and procedural generator regimes, the neural heuristic accurately reflects geodesic
-distances ($R^2 = 0.8597$) and cleanly separates distance deciles (OvR Macro AUC-ROC = $0.9444$).
-When integrated into A$^\ast$ search with Manhattan clipping, the neural heuristic achieves
-near-exact path optimality ($1.001$), sub-2 ms latency, and a 100\% solving rate, laying the
-foundation for hyperparameter ablations and dynamic deployment in subsequent project phases.
+distances ($R^2 = 0.8598$) and separates distance deciles (OvR Macro AUC-ROC = $0.951$).
+However, when integrated into A$^\ast$ the neural heuristic does not beat Manhattan: clipped to
+Manhattan it matches it in expansions (189.3 vs 180.8) with near-exact optimality ($1.001$) but at
+roughly 7$\times$ the per-maze latency once inference is counted, and unclipped variants expand 3$\times$
+more nodes. The ablations (density, model size, $\gamma$) found no configuration that outperforms
+the classical baseline.
 
 % ===========================================================================
 \begin{thebibliography}{9}

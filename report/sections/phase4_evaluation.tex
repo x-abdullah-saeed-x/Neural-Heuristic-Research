@@ -84,8 +84,8 @@ unseen test environments.
 
 \input{report/generated/regression_table.tex}
 
-The model achieves a high coefficient of determination ($R^2 = 0.8597$) and strong linear correlation
-($r = 0.9272$, $\rho = 0.9261$), validating that local 5$\times$5 wall context combined with
+The model achieves a high coefficient of determination ($R^2 = 0.8598$) and strong linear correlation
+($r = 0.9276$, $\rho = 0.9488$), validating that local 5$\times$5 wall context combined with
 goal offsets successfully capture global topological impedance. On a standard $60 \times 60$ grid,
 the root mean squared error is approximately 8.4 cells.
 
@@ -106,9 +106,11 @@ the root mean squared error is approximately 8.4 cells.
 
 As shown in Figure~\ref{fig:regression_scatters}, residuals follow a symmetric zero-centered
 distribution with minimal systematic drift. The empirical cumulative distribution of overestimation
-is visualized in Figure~\ref{fig:admissibility_cdf}. While unconstrained neural outputs can
-produce overestimation, scaling $\alpha < 1.0$ or clipping against Manhattan distances guarantees
-strict admissibility when absolute path optimality is required.
+is visualized in Figure~\ref{fig:admissibility_cdf}. However, the learned heuristic is \emph{not} empirically admissible (Research Question~2): on
+100{,}000 sampled test cells, 58.1\% exceed $h^\ast$ by more than 0.5 cells, with a mean
+overestimation of 1.89 cells (95th percentile 6.6, maximum 20.5). Scaling $\alpha < 1.0$ or
+clipping against Manhattan distance reduces, but does not strictly eliminate, sub-optimality
+(best observed mean optimality ratio 1.0014 with clipping, 1.0056 at $\alpha=0.5$).
 
 \begin{figure}[H]
     \centering
@@ -122,7 +124,7 @@ Table~\ref{tab:classification_results} details the classification performance ac
 
 \input{report/generated/classification_table.tex}
 
-The model demonstrates strong discriminative capability with an OvR Macro AUC-ROC of 0.9444.
+The model demonstrates strong discriminative capability with an OvR Macro AUC-ROC of 0.951.
 Figure~\ref{fig:classification_plots} shows the corresponding normalized confusion matrix and
 multi-class ROC curves. Classification confusion is concentrated exclusively in adjacent
 diagonal neighbors, confirming that distance misclassifications are bounded local errors rather
@@ -166,18 +168,39 @@ and the perfect Oracle across all 282 test mazes.
 \end{figure}
 
 All tested heuristics solved 100\% of the 282 test mazes. The perfect Oracle expands a mean of only
-52.8 nodes, representing a 41.8\% reduction compared to Manhattan A$^\ast$ (180.8 nodes).
-Neural clipped Manhattan achieves an optimality ratio of 1.001 with sub-2 ms latency.
+52.8 nodes, a 41.8\% reduction compared to Manhattan A$^\ast$ (180.8 nodes), which shows that
+substantial headroom exists. The learned heuristic does not realise it. Raw neural A$^\ast$
+($\alpha=1.0$) expands 561.5 nodes on average (3.1$\times$ \emph{more} than Manhattan) with an
+optimality ratio of 1.034, and neural clipped to Manhattan expands 189.3 nodes (4.7\% more)
+with an optimality ratio of 1.001. Euclidean distance expands 684.7 nodes. Latency is measured
+end to end, including the network forward pass: neural clipped Manhattan needs 16.1~ms per maze
+versus 2.4~ms for Manhattan, so the inference cost exceeds any search saving. The research
+hypothesis, that the neural heuristic reduces expanded nodes relative to Manhattan, is therefore
+\textbf{not supported} on our static grid-maze benchmark.
 
 \subsubsection{Scaling Sensitivity Parameter Sweep ($\alpha$)}
 To explore the trade-off between search efficiency and path optimality, we swept scaling parameter
-$\alpha \in [0.6, 1.0]$ in Table~\ref{tab:alpha_sweep}.
+$\alpha \in [0.5, 1.5]$ in Table~\ref{tab:alpha_sweep}.
 
 \input{report/generated/alpha_sweep_table.tex}
 
-Increasing $\alpha$ focuses the search beam more aggressively toward the goal, reducing expanded
-nodes from 1,133 at $\alpha=0.6$ down to 547 at $\alpha=1.0$, with path cost remaining within 3.4\%
-of optimal shortest paths.
+Increasing $\alpha$ focuses the search more aggressively toward the goal, reducing expanded
+nodes from 1,288 at $\alpha=0.5$ to 562 at $\alpha=1.0$ and 214 at $\alpha=1.5$, while the mean
+optimality ratio rises from 1.006 to 1.034 and 1.068. Even the most aggressive inadmissible setting
+($\alpha=1.5$) still expands more nodes than Manhattan (180.8), at 6.8\% sub-optimality.
+
+\subsubsection{Ablation Studies}
+Results are in \texttt{results/ablations/}. \emph{Model size} (1, 2 and 4 hidden layers of 64
+units, clipped to Manhattan): mean expansions are 178.9, 189.3 and 186.1 against 180.8 for Manhattan,
+i.e.\ within about 5\% of the baseline, while the forward-pass cost grows from 4.4~ms to 6.7~ms to
+21.0~ms per maze, so deeper networks only add latency. The 4-layer raw model expands fewer nodes
+than the 1- and 2-layer raw models (443 vs 564 and 561). \emph{Obstacle density}
+(10--40\%): the clipped variants track Manhattan at every density, and raw variants expand
+roughly 5--7$\times$ more nodes at 10\% density and 1.4--1.7$\times$ more at 40\%, so the gap
+narrows as obstacles increase but never reverses. \emph{Inadmissibility factor} $\gamma$: expansions
+fall from 1,288 ($\gamma=0.5$) to 561 ($\gamma=1.0$) to 214 ($\gamma=1.5$) with optimality ratios of
+1.006, 1.034 and 1.068. No setting beat Manhattan on either nodes or total latency, so we found no
+break-even scale or density for neural-guided A$^\ast$ on these mazes (Research Question~3).
 
 \subsection{Error Analysis and Qualitative Comparison}
 Figure~\ref{fig:heatmaps} presents visual comparison of ground-truth geodesic distance $h^\ast$,

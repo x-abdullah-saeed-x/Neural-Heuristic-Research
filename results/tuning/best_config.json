@@ -1,0 +1,21 @@
+{
+  "hyperparameters": {
+    "hidden_dims": [
+      256,
+      256,
+      128
+    ],
+    "activation": "relu",
+    "dropout": 0.1,
+    "batch_size": 1024,
+    "learning_rate": 0.0003,
+    "weight_decay": 1e-05,
+    "reg_loss": "smooth_l1",
+    "lambda_aux": 0.1,
+    "target_transform": "standardised"
+  },
+  "model_source": "hamid",
+  "stage_c_run_id": "C_e19b89",
+  "stage_c_best_val_mae": 0.051611756446506035,
+  "checkpoint": "models/tuned_best.pt"
+}
