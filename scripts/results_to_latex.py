@@ -186,8 +186,9 @@ def generate_bias_table(bias_csv_path: str, out_tex_path: str):
     df = pd.read_csv(bias_csv_path)
     rows = []
     for _, row in df.iterrows():
-        subgroup = str(row.get("subgroup", ""))
-        value = str(row.get("value", ""))
+        # escape LaTeX specials: an unescaped % (e.g. "Obstacle Density (%)") comments out the rest of the row
+        subgroup = str(row.get("subgroup", "")).replace("%", "\\%")
+        value = str(row.get("value", "")).replace("%", "\\%")
         mae = f"{float(row.get('mae_cells', 0)):.2f}" if pd.notna(row.get('mae_cells')) else "---"
         rmse = f"{float(row.get('rmse_cells', 0)):.2f}" if pd.notna(row.get('rmse_cells')) else "---"
         signed = f"{float(row.get('mean_signed_error_cells', 0)):.2f}" if pd.notna(row.get('mean_signed_error_cells')) else "---"

@@ -8,6 +8,14 @@ To rigorously assess the performance of the learned neural heuristic relative to
 and oracle baselines, we establish an evaluation protocol spanning regression fidelity, auxiliary
 classification discrimination, and end-to-end graph search efficiency.
 
+\subsubsection{Model Used for the Reported Results}
+The offline regression, admissibility and classification figures and all A$^\ast$ search results in
+this section (including the $\alpha$ sweep and ablations) were computed with the scikit-learn
+fallback MLP (two hidden layers of 64 units, trained on a 50{,}000-cell sample with
+\texttt{scripts/train\_fallback\_models.py}), not with the PyTorch multi-task network described in
+Phase~3. The PyTorch network was tuned and trained separately (Section on training dynamics) and has
+not yet been integrated into the search benchmark.
+
 \subsubsection{Data Leakage Prevention and Split Structure}
 Evaluation is strictly isolated on the unseen test set of 282 mazes partition (15\% of
 the cleaned corpus), partitioned by complete maze environment rather than individual cell
@@ -52,14 +60,15 @@ During deterministic $A^\ast$ execution, we measure:
 \end{enumerate}
 
 \subsection{Training Dynamics and Convergence}
-The multi-task neural network was trained on 4.41 million cell samples. Figure~\ref{fig:training_curves}
+The multi-task PyTorch network (\trHiddenDims{} hidden units, \trParams{} parameters) was trained with
+early stopping on the training split; Section~\ref{sec:phase3_training} gives the full protocol. Figure~\ref{fig:training_curves}
 illustrates the convergence trajectories across training epochs.
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.32\textwidth}
         \includegraphics[width=\textwidth]{figures/training_loss.png}
-        \caption{Loss (MSE)}
+        \caption{Loss (smooth L1)}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\textwidth}
@@ -75,8 +84,9 @@ illustrates the convergence trajectories across training epochs.
     \label{fig:training_curves}
 \end{figure}
 
-The model demonstrates steady convergence with consistent decrease in validation loss
-and absence of pathological overfitting, stabilizing at a normalized validation MAE below 0.15.
+The primary run (seed 42) reached its best validation MAE of \trValMAE{} and 10-bin accuracy of \trValBinAcc{} at
+epoch \trBestEpoch{} and stopped early after \trEpochsRun{} epochs; across \trNumSeeds{} seeds (\trSeedList) the mean
+validation MAE is \trMeanMAE{} $\pm$ \trStdMAE{}, with no sign of pathological overfitting.
 
 \subsection{Offline Regression and Admissibility Analysis}
 Table~\ref{tab:regression_results} summarizes cell-level regression fidelity evaluated across
