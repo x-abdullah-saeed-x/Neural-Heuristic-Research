@@ -24,7 +24,7 @@ from src.metrics import (
     classification_metrics,
     search_aggregate,
 )
-from src.search import ManhattanHeuristic, OracleHeuristic, ZeroHeuristic
+from src.search import EuclideanHeuristic, ManhattanHeuristic, OracleHeuristic, ZeroHeuristic
 from src.sklearn_heuristic import SklearnNeuralHeuristic
 
 logging.basicConfig(
@@ -62,7 +62,12 @@ def evaluate_cell_metrics(
         import torch
         ckpt = torch.load(regressor_path, map_location="cpu")
         # Real model inference can be added here once checkpoint is provided
-        raise NotImplementedError("PyTorch backend integration will execute when checkpoint is delivered.")
+        from src.model import ModelConfig, NeuralHeuristicNet
+        cfg = dict(ckpt["model_config"]); cfg["hidden_dims"] = tuple(cfg["hidden_dims"])
+        net = NeuralHeuristicNet(ModelConfig(**cfg)); net.load_state_dict(ckpt["model_state"]); net.eval()
+        with torch.no_grad():
+            y_std, _ = net(torch.from_numpy(X_sub.astype("float32")))
+        y_pred = y_std.squeeze(-1).numpy() * float(ckpt.get("target_std", 1.0)) + float(ckpt.get("target_mean", 0.0))
 
     # 1. Regression metrics (normalized and for representative grid size 60)
     reg_res = regression_metrics(y_sub, y_pred, grid_size=60.0)
@@ -125,10 +130,12 @@ def main():
     log.info(f"Loaded {len(mazes)} mazes for search evaluation.")
 
     # Configure all heuristics to run
-    alphas = [0.6, 0.7, 0.8, 0.9, 1.0]
+    # Proposal: gamma in [0.5, 1.5] (gamma > 1 = inadmissible, faster/sub-optimal search)
+    alphas = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
     heuristics = {
         "dijkstra": (lambda m: ZeroHeuristic(), 1.0),
         "manhattan": (lambda m: ManhattanHeuristic(m["goal"]), 1.0),
+        "euclidean": (lambda m: EuclideanHeuristic(m["goal"]), 1.0),
         "oracle": (lambda m: OracleHeuristic(m["h_star"]), 1.0),
     }
 
