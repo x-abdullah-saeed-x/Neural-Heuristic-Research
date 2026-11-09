@@ -1,316 +1,316 @@
 {
   "n_samples": 50000,
-  "mean_residual": -0.00971208419650793,
-  "std_residual": 0.14097820222377777,
-  "p95_abs_residual": 0.23154155910015106,
+  "mean_residual": -0.009625201113522053,
+  "std_residual": 0.14095750451087952,
+  "p95_abs_residual": 0.23106136918067932,
   "decile_breakdown": [
     {
       "decile": 0,
       "range_min": 0.0,
       "range_max": 0.2666666805744171,
       "count": 5001,
-      "mae": 0.03718028590083122,
-      "rmse": 0.050872012972831726,
-      "mean_signed_error": 0.021434763446450233
+      "mae": 0.037264641374349594,
+      "rmse": 0.051086362451314926,
+      "mean_signed_error": 0.02168637327849865
     },
     {
       "decile": 1,
       "range_min": 0.2666666805744171,
       "range_max": 0.4000000059604645,
       "count": 5444,
-      "mae": 0.03876879811286926,
-      "rmse": 0.05094088986515999,
-      "mean_signed_error": 0.013149045407772064
+      "mae": 0.038753170520067215,
+      "rmse": 0.050981439650058746,
+      "mean_signed_error": 0.013386305421590805
     },
     {
       "decile": 2,
       "range_min": 0.4000000059604645,
       "range_max": 0.5099999904632568,
       "count": 5387,
-      "mae": 0.04602247476577759,
-      "rmse": 0.06116070970892906,
-      "mean_signed_error": 0.014109114184975624
+      "mae": 0.0461498498916626,
+      "rmse": 0.06123809516429901,
+      "mean_signed_error": 0.014386995695531368
     },
     {
       "decile": 3,
       "range_min": 0.5099999904632568,
       "range_max": 0.612500011920929,
       "count": 5143,
-      "mae": 0.05303046479821205,
-      "rmse": 0.07211151719093323,
-      "mean_signed_error": 0.014994040131568909
+      "mae": 0.05316036194562912,
+      "rmse": 0.07223518937826157,
+      "mean_signed_error": 0.015135449357330799
     },
     {
       "decile": 4,
       "range_min": 0.612500011920929,
       "range_max": 0.7124999761581421,
       "count": 5163,
-      "mae": 0.058196477591991425,
-      "rmse": 0.07955443859100342,
-      "mean_signed_error": 0.016997389495372772
+      "mae": 0.05823077633976936,
+      "rmse": 0.07952223718166351,
+      "mean_signed_error": 0.01706903986632824
     },
     {
       "decile": 5,
       "range_min": 0.7124999761581421,
       "range_max": 0.8199999928474426,
       "count": 5216,
-      "mae": 0.0646899864077568,
-      "rmse": 0.09044574946165085,
-      "mean_signed_error": 0.018917832523584366
+      "mae": 0.06467039883136749,
+      "rmse": 0.09043678641319275,
+      "mean_signed_error": 0.019016418606042862
     },
     {
       "decile": 6,
       "range_min": 0.8199999928474426,
       "range_max": 0.9333333373069763,
       "count": 5159,
-      "mae": 0.06903616338968277,
-      "rmse": 0.10126491636037827,
-      "mean_signed_error": 0.012175668962299824
+      "mae": 0.06906706839799881,
+      "rmse": 0.10123950988054276,
+      "mean_signed_error": 0.012242535129189491
     },
     {
       "decile": 7,
       "range_min": 0.9333333373069763,
       "range_max": 1.0625,
       "count": 5043,
-      "mae": 0.07489916682243347,
-      "rmse": 0.11749260872602463,
-      "mean_signed_error": -0.002972878748551011
+      "mae": 0.07472222298383713,
+      "rmse": 0.11744712293148041,
+      "mean_signed_error": -0.0031345970928668976
     },
     {
       "decile": 8,
       "range_min": 1.0625,
       "range_max": 1.25,
       "count": 5283,
-      "mae": 0.08879059553146362,
-      "rmse": 0.14881493151187897,
-      "mean_signed_error": -0.0354146771132946
+      "mae": 0.08868592232465744,
+      "rmse": 0.14872074127197266,
+      "mean_signed_error": -0.035467877984046936
     },
     {
       "decile": 9,
       "range_min": 1.25,
       "range_max": 2.9200000762939453,
       "count": 5104,
-      "mae": 0.1985836774110794,
-      "rmse": 0.3507801592350006,
-      "mean_signed_error": -0.1685548573732376
+      "mae": 0.19857157766819,
+      "rmse": 0.3506700098514557,
+      "mean_signed_error": -0.168573260307312
     }
   ],
   "wall_density_breakdown": [
     {
       "wall_count": 0,
       "count": 12221,
-      "mae": 0.07173345237970352,
-      "rmse": 0.15408313274383545
+      "mae": 0.07158572226762772,
+      "rmse": 0.1540735960006714
     },
     {
       "wall_count": 1,
       "count": 3510,
-      "mae": 0.06195707991719246,
-      "rmse": 0.14471659064292908
+      "mae": 0.06197332963347435,
+      "rmse": 0.14458633959293365
     },
     {
       "wall_count": 2,
       "count": 4123,
-      "mae": 0.05650294944643974,
-      "rmse": 0.11841364204883575
+      "mae": 0.05659319832921028,
+      "rmse": 0.11840639263391495
     },
     {
       "wall_count": 3,
       "count": 4058,
-      "mae": 0.058274880051612854,
-      "rmse": 0.12290653586387634
+      "mae": 0.05826811492443085,
+      "rmse": 0.12288585305213928
     },
     {
       "wall_count": 4,
       "count": 3774,
-      "mae": 0.05817773938179016,
-      "rmse": 0.12000156939029694
+      "mae": 0.05828794836997986,
+      "rmse": 0.11994489282369614
     },
     {
       "wall_count": 5,
       "count": 4156,
-      "mae": 0.0644984319806099,
-      "rmse": 0.12661536037921906
+      "mae": 0.06460483372211456,
+      "rmse": 0.12661752104759216
     },
     {
       "wall_count": 6,
       "count": 3325,
-      "mae": 0.06887324154376984,
-      "rmse": 0.12471643090248108
+      "mae": 0.06889776140451431,
+      "rmse": 0.12468373775482178
     },
     {
       "wall_count": 7,
       "count": 3022,
-      "mae": 0.07723015546798706,
-      "rmse": 0.13531549274921417
+      "mae": 0.07731454819440842,
+      "rmse": 0.13525743782520294
     },
     {
       "wall_count": 8,
       "count": 2542,
-      "mae": 0.08646668493747711,
-      "rmse": 0.13965268433094025
+      "mae": 0.08663271367549896,
+      "rmse": 0.1396043449640274
     },
     {
       "wall_count": 9,
       "count": 2149,
-      "mae": 0.09420803189277649,
-      "rmse": 0.15252673625946045
+      "mae": 0.09433404356241226,
+      "rmse": 0.15255922079086304
     },
     {
       "wall_count": 10,
       "count": 2581,
-      "mae": 0.09060057997703552,
-      "rmse": 0.15086203813552856
+      "mae": 0.09076713025569916,
+      "rmse": 0.15092170238494873
     },
     {
       "wall_count": 11,
       "count": 1515,
-      "mae": 0.09586015343666077,
-      "rmse": 0.15023468434810638
+      "mae": 0.0958012044429779,
+      "rmse": 0.15017780661582947
     },
     {
       "wall_count": 12,
       "count": 1088,
-      "mae": 0.10222381353378296,
-      "rmse": 0.16636380553245544
+      "mae": 0.10230971872806549,
+      "rmse": 0.16634027659893036
     },
     {
       "wall_count": 13,
       "count": 775,
-      "mae": 0.10264717042446136,
-      "rmse": 0.16095319390296936
+      "mae": 0.10263469070196152,
+      "rmse": 0.1609605848789215
     },
     {
       "wall_count": 14,
       "count": 482,
-      "mae": 0.11723154783248901,
-      "rmse": 0.17618629336357117
+      "mae": 0.11692275106906891,
+      "rmse": 0.17594659328460693
     },
     {
       "wall_count": 15,
       "count": 313,
-      "mae": 0.12618768215179443,
-      "rmse": 0.20539942383766174
+      "mae": 0.12610262632369995,
+      "rmse": 0.20551104843616486
     },
     {
       "wall_count": 16,
       "count": 176,
-      "mae": 0.1347818523645401,
-      "rmse": 0.21682575345039368
+      "mae": 0.1340027004480362,
+      "rmse": 0.21731239557266235
     },
     {
       "wall_count": 17,
       "count": 96,
-      "mae": 0.12604083120822906,
-      "rmse": 0.17869548499584198
+      "mae": 0.12466583400964737,
+      "rmse": 0.17790734767913818
     },
     {
       "wall_count": 18,
       "count": 57,
-      "mae": 0.16009920835494995,
-      "rmse": 0.2281714826822281
+      "mae": 0.15841013193130493,
+      "rmse": 0.22744444012641907
     }
   ],
   "search_worst_regressions": [
     {
-      "maze_id": 32,
+      "maze_id": "mazes_backtracker_100_10.npz_32",
       "generator": "backtracker",
       "size": 100,
       "density": 10,
       "manhattan_expanded": 186.0,
-      "neural_expanded": 3547.0,
-      "expansion_increase": 3361.0,
+      "neural_expanded": 3628.0,
+      "expansion_increase": 3442.0,
       "optimality_ratio": 1.0149253731343284
     },
     {
-      "maze_id": 13,
+      "maze_id": "mazes_backtracker_100_10.npz_13",
       "generator": "backtracker",
       "size": 100,
       "density": 10,
       "manhattan_expanded": 338.0,
-      "neural_expanded": 3263.0,
-      "expansion_increase": 2925.0,
+      "neural_expanded": 3317.0,
+      "expansion_increase": 2979.0,
       "optimality_ratio": 1.0
     },
     {
-      "maze_id": 41,
+      "maze_id": "mazes_backtracker_100_10.npz_41",
       "generator": "backtracker",
       "size": 100,
       "density": 10,
       "manhattan_expanded": 124.0,
-      "neural_expanded": 2687.0,
-      "expansion_increase": 2563.0,
+      "neural_expanded": 2650.0,
+      "expansion_increase": 2526.0,
       "optimality_ratio": 1.018348623853211
     },
     {
-      "maze_id": 65,
-      "generator": "backtracker",
-      "size": 100,
-      "density": 20,
-      "manhattan_expanded": 256.0,
-      "neural_expanded": 2802.0,
-      "expansion_increase": 2546.0,
-      "optimality_ratio": 1.0476190476190477
-    },
-    {
-      "maze_id": 1008,
+      "maze_id": "mazes_perlin_100_10.npz_22",
       "generator": "perlin",
       "size": 100,
       "density": 10,
       "manhattan_expanded": 451.0,
-      "neural_expanded": 2888.0,
-      "expansion_increase": 2437.0,
+      "neural_expanded": 2936.0,
+      "expansion_increase": 2485.0,
       "optimality_ratio": 1.0
     },
     {
-      "maze_id": 1007,
+      "maze_id": "mazes_backtracker_100_20.npz_15",
+      "generator": "backtracker",
+      "size": 100,
+      "density": 20,
+      "manhattan_expanded": 256.0,
+      "neural_expanded": 2724.0,
+      "expansion_increase": 2468.0,
+      "optimality_ratio": 1.0476190476190477
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_21",
       "generator": "perlin",
       "size": 100,
       "density": 10,
       "manhattan_expanded": 307.0,
-      "neural_expanded": 2726.0,
-      "expansion_increase": 2419.0,
+      "neural_expanded": 2735.0,
+      "expansion_increase": 2428.0,
       "optimality_ratio": 1.0
     },
     {
-      "maze_id": 93,
+      "maze_id": "mazes_backtracker_100_20.npz_43",
       "generator": "backtracker",
       "size": 100,
       "density": 20,
       "manhattan_expanded": 637.0,
-      "neural_expanded": 2555.0,
-      "expansion_increase": 1918.0,
-      "optimality_ratio": 1.1162790697674418
+      "neural_expanded": 2920.0,
+      "expansion_increase": 2283.0,
+      "optimality_ratio": 1.1627906976744187
     },
     {
-      "maze_id": 49,
-      "generator": "backtracker",
-      "size": 100,
-      "density": 10,
-      "manhattan_expanded": 96.0,
-      "neural_expanded": 1957.0,
-      "expansion_increase": 1861.0,
-      "optimality_ratio": 1.1363636363636365
-    },
-    {
-      "maze_id": 34,
+      "maze_id": "mazes_backtracker_100_10.npz_34",
       "generator": "backtracker",
       "size": 100,
       "density": 10,
       "manhattan_expanded": 134.0,
-      "neural_expanded": 1993.0,
-      "expansion_increase": 1859.0,
-      "optimality_ratio": 1.0
+      "neural_expanded": 2230.0,
+      "expansion_increase": 2096.0,
+      "optimality_ratio": 1.0198019801980198
     },
     {
-      "maze_id": 76,
+      "maze_id": "mazes_backtracker_100_10.npz_49",
       "generator": "backtracker",
       "size": 100,
-      "density": 20,
-      "manhattan_expanded": 378.0,
-      "neural_expanded": 2086.0,
-      "expansion_increase": 1708.0,
-      "optimality_ratio": 1.155844155844156
+      "density": 10,
+      "manhattan_expanded": 96.0,
+      "neural_expanded": 2016.0,
+      "expansion_increase": 1920.0,
+      "optimality_ratio": 1.1363636363636365
+    },
+    {
+      "maze_id": "mazes_backtracker_80_10.npz_39",
+      "generator": "backtracker",
+      "size": 80,
+      "density": 10,
+      "manhattan_expanded": 161.0,
+      "neural_expanded": 1867.0,
+      "expansion_increase": 1706.0,
+      "optimality_ratio": 1.0449438202247192
     }
   ]
 }

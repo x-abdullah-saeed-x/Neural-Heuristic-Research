@@ -15,7 +15,7 @@ model:
   n_bins: 10
 train:
   seed: 42
-  epochs: 1
+  epochs: 20
   batch_size: 1024
   learning_rate: 0.0003
   weight_decay: 1.0e-05
@@ -26,8 +26,8 @@ train:
   patience: 5
   lr_factor: 0.5
   lr_patience: 2
-  max_train_cells_per_epoch: 20000
-  max_val_cells: 5000
+  max_train_cells_per_epoch: null
+  max_val_cells: null
   target_transform: standardised
   bin_strategy: quantile
   models_dir: models

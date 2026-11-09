@@ -1,0 +1,14 @@
+{
+  "checkpoint": "results/tuning\\A05_adc120\\best.pt",
+  "run_dir": "results/tuning\\A05_adc120",
+  "best_epoch": 5,
+  "best_val_mae": 0.08956031093899161,
+  "best_val_bin_accuracy": 0.06846,
+  "best_val_macro_f1": 0.03929147147187604,
+  "epochs_run": 5,
+  "stopped_early": false,
+  "n_params": 21771,
+  "train_seconds": 21.22731719999865,
+  "seed": 42,
+  "git_commit": "d25e1bdcfbac0844dc1df368ac34298e0adbf7b4"
+}

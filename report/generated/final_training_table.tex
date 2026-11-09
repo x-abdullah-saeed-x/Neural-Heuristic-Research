@@ -1,0 +1,15 @@
+\begin{table}[H]
+\centering
+\small
+\caption{Final models. Validation MAE is in units of $h^*/N$; the replicate seeds use fewer cells per epoch, so only the primary model is trained on the full split. Mean over seeds: 0.0518 $\pm$ 0.0004.}
+\label{tab:final_training}
+\begin{tabular}{llrrrrrrr}
+\toprule
+Seed & Role & Cells/epoch & Epochs & Best ep. & Val MAE & Bin acc. & Macro-F1 & Minutes \\
+\midrule
+42 & primary & full split & 11 & 6 & 0.0516 & 0.750 & 0.750 & 21.8 \\
+43 & replicate & 1{,}000{,}000 & 15 & 10 & 0.0522 & 0.736 & 0.736 & 7.2 \\
+44 & replicate & 1{,}000{,}000 & 18 & 13 & 0.0515 & 0.743 & 0.743 & 8.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

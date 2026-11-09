@@ -1,0 +1,27 @@
+{
+  "run_id": "C_e19b89",
+  "stage": "C",
+  "model_source": "hamid",
+  "seed": 42,
+  "hyperparameters": {
+    "hidden_dims": [
+      256,
+      256,
+      128
+    ],
+    "activation": "relu",
+    "dropout": 0.1,
+    "batch_size": 1024,
+    "learning_rate": 0.0003,
+    "weight_decay": 1e-05,
+    "reg_loss": "smooth_l1",
+    "lambda_aux": 0.1,
+    "target_transform": "standardised"
+  },
+  "stage_settings": {
+    "epochs": 20,
+    "max_train_cells_per_epoch": null,
+    "max_val_cells": null,
+    "patience": 5
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "run_id": "A01_b5b948",
+  "stage": "A",
+  "model_source": "hamid",
+  "seed": 42,
+  "hyperparameters": {
+    "hidden_dims": [
+      256,
+      256,
+      128
+    ],
+    "activation": "relu",
+    "dropout": 0.1,
+    "batch_size": 1024,
+    "learning_rate": 0.0003,
+    "weight_decay": 1e-05,
+    "reg_loss": "smooth_l1",
+    "lambda_aux": 0.1,
+    "target_transform": "standardised"
+  },
+  "stage_settings": {
+    "epochs": 5,
+    "max_train_cells_per_epoch": 400000,
+    "max_val_cells": 100000,
+    "patience": 5
+  }
+}

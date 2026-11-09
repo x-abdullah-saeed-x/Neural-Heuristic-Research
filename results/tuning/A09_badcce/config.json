@@ -1,0 +1,26 @@
+{
+  "run_id": "A09_badcce",
+  "stage": "A",
+  "model_source": "hamid",
+  "seed": 42,
+  "hyperparameters": {
+    "hidden_dims": [
+      512,
+      256
+    ],
+    "activation": "relu",
+    "dropout": 0.2,
+    "batch_size": 1024,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "reg_loss": "mse",
+    "lambda_aux": 0.0,
+    "target_transform": "raw"
+  },
+  "stage_settings": {
+    "epochs": 5,
+    "max_train_cells_per_epoch": 400000,
+    "max_val_cells": 100000,
+    "patience": 5
+  }
+}
