@@ -260,50 +260,34 @@ def plot_sample_maze_heatmaps(cleaned_path, regressor_path, out_path):
     plt.close(fig)
 
 
-def plot_synthetic_training_curves(out_dir):
-    """Generate training history curves if history is not already present from PyTorch loop."""
-    epochs = np.arange(1, 31)
-    train_loss = 0.25 * np.exp(-epochs / 6.0) + 0.02 + np.random.normal(0, 0.002, len(epochs))
-    val_loss = 0.27 * np.exp(-epochs / 6.5) + 0.025 + np.random.normal(0, 0.003, len(epochs))
+def plot_training_curves(out_dir, history_csv="results/training/neural_heuristic_seed42/history.csv"):
+    """Plot the REAL training history (written by src/train.py) for the primary run."""
+    import pandas as pd
+    if not os.path.exists(history_csv):
+        raise FileNotFoundError(f"{history_csv} not found; run scripts/train_final.py first")
+    h = pd.read_csv(history_csv)
+    ep = h["epoch"].to_numpy()
+    best = int(h.loc[h["val_mae"].idxmin(), "epoch"])
 
-    fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
-    ax.plot(epochs, train_loss, label="Train Loss (MSE)", color="#3b6fb6", linewidth=1.8)
-    ax.plot(epochs, val_loss, label="Val Loss (MSE)", color="#d1603d", linewidth=1.8, linestyle="--")
-    ax.set_xlabel("Epoch")
-    ax.set_ylabel("Loss")
-    ax.set_title("Model Training and Validation Loss Curve")
-    ax.legend(frameon=True)
-    fig.tight_layout()
-    fig.savefig(os.path.join(out_dir, "training_loss.png"), dpi=300)
-    plt.close(fig)
+    def _save(ys, labels, ylabel, title, fname):
+        fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
+        for y, lab, col, ls in ys:
+            ax.plot(ep, h[y], label=lab, color=col, linewidth=1.8, linestyle=ls)
+        ax.axvline(best, color="grey", linewidth=1, linestyle=":", label=f"Best epoch ({best})")
+        ax.set_xlabel("Epoch")
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        ax.legend(frameon=True)
+        fig.tight_layout()
+        fig.savefig(os.path.join(out_dir, fname), dpi=300)
+        plt.close(fig)
 
-    train_mae = 0.40 * np.exp(-epochs / 7.0) + 0.09 + np.random.normal(0, 0.002, len(epochs))
-    val_mae = 0.42 * np.exp(-epochs / 7.5) + 0.10 + np.random.normal(0, 0.002, len(epochs))
-
-    fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
-    ax.plot(epochs, train_mae, label="Train MAE", color="#3b6fb6", linewidth=1.8)
-    ax.plot(epochs, val_mae, label="Val MAE", color="#d1603d", linewidth=1.8, linestyle="--")
-    ax.set_xlabel("Epoch")
-    ax.set_ylabel("MAE ($h^\\ast / N$)")
-    ax.set_title("Mean Absolute Error Across Training Epochs")
-    ax.legend(frameon=True)
-    fig.tight_layout()
-    fig.savefig(os.path.join(out_dir, "training_mae.png"), dpi=300)
-    plt.close(fig)
-
-    train_acc = 0.35 + 0.45 * (1.0 - np.exp(-epochs / 5.0)) + np.random.normal(0, 0.005, len(epochs))
-    val_acc = 0.33 + 0.43 * (1.0 - np.exp(-epochs / 5.5)) + np.random.normal(0, 0.005, len(epochs))
-
-    fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
-    ax.plot(epochs, train_acc, label="Train Bin Accuracy", color="#3b6fb6", linewidth=1.8)
-    ax.plot(epochs, val_acc, label="Val Bin Accuracy", color="#d1603d", linewidth=1.8, linestyle="--")
-    ax.set_xlabel("Epoch")
-    ax.set_ylabel("Top-1 Accuracy")
-    ax.set_title("Auxiliary 10-Bin Classification Accuracy")
-    ax.legend(frameon=True)
-    fig.tight_layout()
-    fig.savefig(os.path.join(out_dir, "training_bin_accuracy.png"), dpi=300)
-    plt.close(fig)
+    _save([("train_loss", "Train loss", "#3b6fb6", "-"), ("val_loss", "Val loss", "#d1603d", "--")],
+          None, "Multi-task loss (smooth L1 + aux)", "Training and Validation Loss (seed 42)", "training_loss.png")
+    _save([("val_mae", "Val MAE", "#d1603d", "--")],
+          None, "MAE (standardised $h^\\ast / N$ units)", "Validation MAE Across Epochs (seed 42)", "training_mae.png")
+    _save([("val_bin_accuracy", "Val bin accuracy", "#d1603d", "--")],
+          None, "Top-1 accuracy", "Auxiliary 10-Bin Validation Accuracy (seed 42)", "training_bin_accuracy.png")
 
 
 def plot_architecture_diagram(out_path):
@@ -382,7 +366,7 @@ def main():
         plot_sample_maze_heatmaps(sample_npz, args.regressor, os.path.join(args.figures_dir, "hstar_vs_prediction_maze.png"))
 
     log.info("Generating training curves and architecture diagram...")
-    plot_synthetic_training_curves(args.figures_dir)
+    plot_training_curves(args.figures_dir)
     plot_architecture_diagram(os.path.join(args.figures_dir, "architecture.png"))
 
     log.info("Running error and bias auditing...")

@@ -7,6 +7,7 @@ Author: Abdullah Zia
 import glob
 import json
 import os
+import time
 import re
 from typing import Any, Callable, Iterator, Optional, Union
 import numpy as np
@@ -56,9 +57,15 @@ def iter_split_mazes(
     if manifest_path and os.path.exists(manifest_path):
         with open(manifest_path, "r", encoding="utf-8") as f:
             manifest = json.load(f)
-        split_entries = manifest.get(split, [])
+        # make_split_manifest.py writes {"splits": {split: {"entries": [{"file", "local_index"}]}}}
+        # older code expected {split: [{"file_name", "local_index"}]}; accept both.
+        splits = manifest.get("splits", manifest)
+        block = splits.get(split, [])
+        split_entries = block.get("entries", []) if isinstance(block, dict) else block
+        if not split_entries:
+            raise ValueError(f"No mazes for split {split!r} in {manifest_path}")
         for entry in split_entries:
-            file_name = entry["file_name"]
+            file_name = entry.get("file_name") or entry["file"]
             path = os.path.join(cleaned_dir, file_name)
             idx = entry["local_index"]
             with np.load(path) as d:
@@ -174,7 +181,9 @@ def run_search_evaluation(
             else:
                 factory = lambda _: h_spec
 
-            h_inst = factory(m)
+            t_setup = time.perf_counter()
+            h_inst = factory(m)  # neural heuristics run their forward pass here
+            setup_ms = (time.perf_counter() - t_setup) * 1000.0
             if hasattr(h_inst, "alpha"):
                 alpha_val = getattr(h_inst, "alpha")
 
@@ -209,7 +218,10 @@ def run_search_evaluation(
                 "nodes_expanded": int(result.nodes_expanded),
                 "nodes_generated": int(result.nodes_generated),
                 "heuristic_calls": int(result.heuristic_calls),
-                "runtime_ms": float(result.runtime_ms),
+                "setup_ms": float(setup_ms),
+                "search_ms": float(result.runtime_ms),
+                # total latency = heuristic setup (NN inference) + A* search
+                "runtime_ms": float(setup_ms + result.runtime_ms),
                 "peak_open": int(result.peak_open),
             })
 

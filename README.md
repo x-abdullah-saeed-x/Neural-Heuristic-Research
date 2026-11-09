@@ -4,7 +4,7 @@
 **Track:** B (Research & Development)  
 **Deliverable:** 2 (Model Architecture & Empirical Evaluation)  
 **Repository:** [https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research](https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research)  
-**Integration Branch:** `deliverable-2`
+**Branch:** `main`
 
 ## Team Members & Responsibilities
 - **Abdullah Zia** (Evaluation, Analysis, and Report Lead) — A* search engine, evaluation harness, baselines, metric frameworks, fallback neural models, error & environmental bias analysis, publication figures, report integration.
@@ -20,11 +20,11 @@ This project investigates learned neural heuristics for graph-search pathfinding
 ---
 
 ## Deliverable 2 Status
-Deliverable 2 is fully implemented, verified, and benchmarked:
+Deliverable 2 is implemented and benchmarked. **Headline finding: the hypothesis is not supported by our results** (see Online Search below):
 - **Phase 3 (Model Architecture & Training):** Multi-task neural architecture (29 input features $\to$ 256 $\to$ 256 $\to$ 128 $\to$ continuous target regression $h^\ast/N$ + 10-bin distance classification logits). Supported via both PyTorch and rubric-compliant scikit-learn MLP fallback runtimes.
-- **Phase 4 (Empirical Evaluation):** Benchmark on 282 unseen test mazes across Dijkstra, Manhattan, Oracle, and Neural heuristic configurations ($\alpha$-scaling sweep and Manhattan clipping).
-- **Offline Metrics:** High regression correlation ($R^2 = 0.8597$, $r = 0.9272$) and strong 10-bin decile discrimination (OvR Macro AUC-ROC = 0.9444).
-- **Online Search:** Neural Clipped Manhattan achieves 100% success rate with an optimality ratio of 1.001 and sub-2 ms latency per maze.
+- **Phase 4 (Empirical Evaluation):** Benchmark on 282 unseen test mazes across Dijkstra, Manhattan, Euclidean, Oracle, and Neural heuristic configurations ($\alpha$/$\gamma$-scaling sweep over [0.5, 1.5] and Manhattan clipping), plus ablations (obstacle density, model size 1/2/4 layers, $\gamma$) in `results/ablations/`. Reported search results use the scikit-learn MLP (64,64); the PyTorch model is not used in the A* benchmark.
+- **Offline Metrics:** High regression correlation ($R^2 = 0.8598$, $r = 0.9276$) and 10-bin decile discrimination (OvR Macro AUC-ROC = 0.951). However 58% of test cells are overestimated by more than 0.5 cells (mean overestimate 1.9 cells), so the heuristic is not empirically admissible.
+- **Online Search:** All variants solve 100% of mazes, but none beats Manhattan A* (180.8 mean expansions, 2.4 ms). Raw neural (alpha=1.0) expands 561.5 nodes (3.1x more, optimality 1.034); neural clipped to Manhattan expands 189.3 (4.7% more, optimality 1.001); only the inadmissible gamma=1.5 reaches 213.6 expansions at 1.068 optimality. Latency now includes the network forward pass: clipped neural takes about 16 ms per maze vs 2.4 ms for Manhattan, so the learned heuristic is slower end to end.
 
 ---
 
@@ -69,29 +69,64 @@ Deliverable 2 is fully implemented, verified, and benchmarked:
 
 ---
 
-## Installation & CPU Environment Setup
+## Installation & Local Setup
 
-```powershell
-# Clone the repository and checkout deliverable-2
+### Prerequisites
+- **Python 3.10 or newer** and **Git**. No GPU is needed; everything except PyTorch tuning and training runs on a normal laptop CPU.
+- About 2 GB of free disk space (generated data, results, and PyTorch).
+- Optional, only to rebuild the PDF report: a LaTeX distribution (MiKTeX or TeX Live) providing `pdflatex`.
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/x-abdullah-saeed-x/Neural-Heuristic-Research.git
 cd Neural-Heuristic-Research
-git checkout deliverable-2
+```
+All work is on the `main` branch.
 
-# Create and activate virtual environment
+### 2. Create and activate a virtual environment
+Windows PowerShell:
+```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-
-# Install CPU PyTorch (if using PyTorch backend)
-pip install torch --index-url https://download.pytorch.org/whl/cpu
-
-# Install core dependencies and pytest
-pip install -r requirements.txt
-pip install scipy pytest
 ```
+(If PowerShell blocks the script, run `Set-ExecutionPolicy -Scope Process Bypass` first.)
+
+Windows cmd:
+```
+python -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+Linux / macOS:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+Install the CPU build of PyTorch first (small download), then everything else:
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
+```
+`requirements.txt` covers numpy, pandas, scikit-learn, scipy, matplotlib, PyYAML, joblib, tqdm, huggingface_hub, and pytest.
+
+### 4. Check the install
+```bash
+pytest -q
+```
+Tests that need generated data are skipped until you run the pipeline below.
+
+### Quick look without re-running anything
+All final results are committed: see `results/evaluation/test_summary.json`, `results/ablations/*.csv`, `results/training/final_summary.json`, the figures in `figures/`, and the compiled report `report/Neural_Heuristic_Research.pdf`.
+
+> **Note:** the generated datasets (`data/cleaned`, `data/processed`) and trained model files (`models/`) are not stored in Git. The pipeline below recreates them deterministically (seed 42). Data generation and the scikit-learn models take minutes; PyTorch tuning and final training take hours on a CPU.
 
 ---
 
 ## Reproducing the Pipeline
+
+Run every command from the repository root with the virtual environment active. Lines starting with `#` are comments; they work in PowerShell and bash, but in Windows cmd skip them.
 
 ### 1. Data Pipeline
 ```powershell
@@ -99,6 +134,7 @@ python data_scripts/generate_mazes.py --num-per-config 50 --seed 42
 python data_scripts/compute_labels.py
 python data_scripts/clean_data.py
 python data_scripts/features.py
+python scripts/make_split_manifest.py
 ```
 
 ### 2. Run Test Suite
@@ -121,6 +157,20 @@ python scripts/run_baselines.py --split test --output results/evaluation
 python scripts/run_evaluation.py --backend sklearn --split test --output results/evaluation
 ```
 
+```powershell
+# Ablations: obstacle density, model size (1/2/4 layers), gamma in [0.5, 1.5]
+python scripts/run_ablations.py --samples 50000 --max-iter 30
+```
+
+### 4b. PyTorch Tuning and Final Training (GPU recommended)
+```powershell
+python -m src.tune --config configs/tuning_grid.yaml
+python scripts/make_final_config.py
+python scripts/train_final.py
+python scripts/make_training_report_assets.py
+```
+Note: the A* benchmark above uses the scikit-learn fallback MLP; the PyTorch checkpoints are not yet wired into `run_evaluation.py`.
+
 ### 5. Figures and LaTeX Tables
 ```powershell
 # Generate all publication figures and run error/bias auditing
@@ -130,12 +180,34 @@ python scripts/make_figures.py
 python scripts/results_to_latex.py
 ```
 
+### 6. Rebuilding the PDF Report (optional)
+Run from the repository root, not from `report/`.
+
+Windows cmd:
+```
+set TEXINPUTS=.;report;
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+copy /Y report\main.pdf report\Neural_Heuristic_Research.pdf
+```
+Linux / macOS:
+```bash
+export TEXINPUTS=.:report:
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+pdflatex -interaction=nonstopmode -output-directory=report report/main.tex
+cp report/main.pdf report/Neural_Heuristic_Research.pdf
+```
+Run `pdflatex` twice so cross-references resolve.
+
 ---
 
 ## Model Weights & Checkpoints
-Trained model checkpoints are hosted on the Hugging Face Hub (per non-negotiable repository policy):
-- **Hugging Face Repository:** `https://huggingface.co/x-abdullah-saeed-x/Neural-Heuristic-Research`
-- **Fallback Models:** `models/fallback_mlp_regressor.joblib` and `fallback_mlp_classifier.joblib` (reproducible with seed 42).
+Trained weights are hosted on the Hugging Face Hub, not in Git:
+- **Hugging Face Repository:** https://huggingface.co/Hamid191/Neural-Hueristic-Research
+- **PyTorch checkpoints:** `neural_heuristic_seed42.pt`, `neural_heuristic_seed43.pt`, `neural_heuristic_seed44.pt` (SHA256 values in `models/README.md`).
+- **Fallback models used for the reported A* results:** `fallback_mlp_regressor.joblib` and `fallback_mlp_classifier.joblib` (reproducible with seed 42).
+
+To use them, download the files from the Hub into a local `models/` folder (or recreate the fallback models with `python scripts/train_fallback_models.py` and retrain with `python scripts/train_final.py`), then verify them with `python scripts/write_models_readme.py --check`.
 
 ---
 
@@ -152,4 +224,6 @@ Trained model checkpoints are hosted on the Hugging Face Hub (per non-negotiable
 ## Known Limitations
 1. **Synthetic Static Environments:** The current dataset models 2D static grid environments with uniform cost 1.0. Dynamic obstacles or variable terrain friction are not modeled.
 2. **Local Feature Receptive Field:** The 5$\times$5 local wall context provides strong local obstacle impedance cues, but long-range topological cul-de-sacs require global distance coordinates ($x/N, y/N$) and goal offsets for orientation.
-3. **Overestimation & Admissibility:** Raw unconstrained neural network predictions can overestimate geodesic distances. When absolute shortest-path optimality is strictly required, scaling $\alpha \le 0.8$ or clipping with the Manhattan distance ensures optimal path discovery.
+3. **Overestimation & Admissibility:** Raw unconstrained neural network predictions can overestimate geodesic distances. Scaling $\alpha < 1$ or clipping with the Manhattan distance reduces but does not eliminate sub-optimality (best observed mean optimality ratio 1.001 with clipping, 1.019 at $\alpha = 0.8$); 58% of test cells are overestimated.
+4. **Hypothesis Not Supported:** No neural variant expands fewer nodes than Manhattan A* on the test mazes, and once inference time is counted the neural variants are slower (see Deliverable 2 Status).
+5. **Evaluation Model:** All reported offline metrics and A* results use the scikit-learn MLP (64,64), not the PyTorch 256-256-128 network.

@@ -101,6 +101,7 @@ def generate_search_table(summary_json_path: str, out_tex_path: str):
     target_heuristics = [
         ("Dijkstra (Zero)", "dijkstra"),
         ("Manhattan Baseline", "manhattan"),
+        ("Euclidean Baseline", "euclidean"),
         (r"Neural Heuristic ($\alpha=1.0$)", "neural_alpha_1.0"),
         (r"Neural Scaled ($\alpha=0.8$)", "neural_alpha_0.8"),
         (r"Neural Clipped Manhattan", "neural_clipped_manhattan"),
@@ -124,13 +125,13 @@ def generate_search_table(summary_json_path: str, out_tex_path: str):
     tex = r"""\begin{table}[H]
 \centering
 \small
-\begin{tabular}{lcccccc}
+\resizebox{\textwidth}{!}{\begin{tabular}{lcccccc}
 \toprule
 \textbf{Heuristic} & \textbf{Expanded (Mean $\pm$ Std)} & \textbf{Median} & \textbf{$\Delta_{\text{expanded}}$ vs Man.} & \textbf{Opt. Ratio} & \textbf{Success} & \textbf{Time (ms)} \\
 \midrule
 """ + rows_str + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{End-to-end A$^\ast$ pathfinding performance evaluated across 282 test mazes.}
 \label{tab:search_results}
 \end{table}
@@ -163,13 +164,13 @@ def generate_alpha_sweep_table(alpha_json_path: str, out_tex_path: str):
     tex = r"""\begin{table}[H]
 \centering
 \small
-\begin{tabular}{lccccc}
+\resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
 \toprule
 \textbf{Scale Factor $\alpha$} & \textbf{Mean Expanded} & \textbf{Median Expanded} & \textbf{Reduction vs Man.} & \textbf{Optimality Ratio} & \textbf{Success Rate} \\
 \midrule
 """ + rows_str + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Heuristic scaling parameter ($\alpha$) sensitivity sweep on the test set.}
 \label{tab:alpha_sweep}
 \end{table}
@@ -186,8 +187,9 @@ def generate_bias_table(bias_csv_path: str, out_tex_path: str):
     df = pd.read_csv(bias_csv_path)
     rows = []
     for _, row in df.iterrows():
-        subgroup = str(row.get("subgroup", ""))
-        value = str(row.get("value", ""))
+        # escape LaTeX specials: an unescaped % (e.g. "Obstacle Density (%)") comments out the rest of the row
+        subgroup = str(row.get("subgroup", "")).replace("%", "\\%")
+        value = str(row.get("value", "")).replace("%", "\\%")
         mae = f"{float(row.get('mae_cells', 0)):.2f}" if pd.notna(row.get('mae_cells')) else "---"
         rmse = f"{float(row.get('rmse_cells', 0)):.2f}" if pd.notna(row.get('rmse_cells')) else "---"
         signed = f"{float(row.get('mean_signed_error_cells', 0)):.2f}" if pd.notna(row.get('mean_signed_error_cells')) else "---"
@@ -200,13 +202,13 @@ def generate_bias_table(bias_csv_path: str, out_tex_path: str):
     tex = r"""\begin{table}[H]
 \centering
 \small
-\begin{tabular}{llccccc}
+\resizebox{\textwidth}{!}{\begin{tabular}{llccccc}
 \toprule
 \textbf{Subgroup} & \textbf{Partition} & \textbf{MAE (cells)} & \textbf{RMSE (cells)} & \textbf{Signed Err} & \textbf{Inadm. Rate} & \textbf{$\Delta_{\text{expanded}}$ vs Man.} \\
 \midrule
 """ + rows_str + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Environmental and topological subgroup evaluation (Bias and Fairness analysis).}
 \label{tab:bias_results}
 \end{table}

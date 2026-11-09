@@ -10,7 +10,8 @@ __pycache__/
 venv/
 
 # Model files (for later deliverables)
-models/
+models/*
+!models/README.md
 *.pt
 *.pth
 *.joblib

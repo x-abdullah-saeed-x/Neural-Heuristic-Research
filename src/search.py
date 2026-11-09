@@ -35,6 +35,17 @@ class ManhattanHeuristic:
         return float(abs(r - self.goal[0]) + abs(c - self.goal[1]))
 
 
+class EuclideanHeuristic:
+    """Euclidean (straight-line) distance heuristic; admissible but weaker than Manhattan on 4-connected grids."""
+    name: str = "euclidean"
+
+    def __init__(self, goal: tuple[int, int]):
+        self.goal = goal
+
+    def __call__(self, r: int, c: int) -> float:
+        return float(((r - self.goal[0]) ** 2 + (c - self.goal[1]) ** 2) ** 0.5)
+
+
 class OracleHeuristic:
     """Perfect distance oracle heuristic from precomputed h_star grid."""
     name: str = "oracle"
