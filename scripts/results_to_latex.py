@@ -124,13 +124,14 @@ def generate_search_table(summary_json_path: str, out_tex_path: str):
     tex = r"""\begin{table}[H]
 \centering
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Heuristic} & \textbf{Expanded (Mean $\pm$ Std)} & \textbf{Median} & \textbf{$\Delta_{\text{expanded}}$ vs Man.} & \textbf{Opt. Ratio} & \textbf{Success} & \textbf{Time (ms)} \\
 \midrule
 """ + rows_str + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{End-to-end A$^\ast$ pathfinding performance evaluated across 282 test mazes.}
 \label{tab:search_results}
 \end{table}
@@ -147,14 +148,25 @@ def generate_alpha_sweep_table(alpha_json_path: str, out_tex_path: str):
     with open(alpha_json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    manhattan_mean = None
+    summary_path = os.path.join(os.path.dirname(alpha_json_path), "test_summary.json")
+    if os.path.exists(summary_path):
+        with open(summary_path, "r", encoding="utf-8") as f:
+            manhattan_mean = json.load(f)["manhattan"]["mean_nodes_expanded"]
+
     rows = []
     for alpha_str in sorted(data.keys(), key=lambda x: float(x)):
         h = data[alpha_str]
+        mean_nodes = float(h.get("mean_nodes_expanded", 0))
+        if manhattan_mean:
+            reduction = (mean_nodes - manhattan_mean) / manhattan_mean * 100
+        else:
+            reduction = h.get("mean_relative_node_reduction_vs_baseline", 0) * 100
         rows.append(
             f"$\\alpha = {float(alpha_str):.1f}$ & "
-            f"{h.get('mean_nodes_expanded', 0):.1f} & "
+            f"{mean_nodes:.1f} & "
             f"{h.get('median_nodes_expanded', 0):.0f} & "
-            f"{h.get('mean_relative_node_reduction_vs_baseline', 0) * 100:.1f}\\% & "
+            f"{reduction:+.1f}\\% & "
             f"{h.get('mean_optimality_ratio', 1.0):.3f} & "
             f"{h.get('success_rate', 0) * 100:.1f}\\% \\\\"
         )
@@ -163,14 +175,15 @@ def generate_alpha_sweep_table(alpha_json_path: str, out_tex_path: str):
     tex = r"""\begin{table}[H]
 \centering
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Scale Factor $\alpha$} & \textbf{Mean Expanded} & \textbf{Median Expanded} & \textbf{Reduction vs Man.} & \textbf{Optimality Ratio} & \textbf{Success Rate} \\
+\textbf{Scale Factor $\alpha$} & \textbf{Mean Expanded} & \textbf{Median Expanded} & \textbf{Change vs Man.} & \textbf{Optimality Ratio} & \textbf{Success Rate} \\
 \midrule
 """ + rows_str + r"""
 \bottomrule
-\end{tabular}
-\caption{Heuristic scaling parameter ($\alpha$) sensitivity sweep on the test set.}
+\end{tabular}}
+\caption{Heuristic scaling parameter ($\alpha$) sensitivity sweep on the test set. Change is relative to the Manhattan mean; positive values mean more expansions.}
 \label{tab:alpha_sweep}
 \end{table}
 """
@@ -186,8 +199,8 @@ def generate_bias_table(bias_csv_path: str, out_tex_path: str):
     df = pd.read_csv(bias_csv_path)
     rows = []
     for _, row in df.iterrows():
-        subgroup = str(row.get("subgroup", ""))
-        value = str(row.get("value", ""))
+        subgroup = str(row.get("subgroup", "")).replace("%", "\\%")
+        value = str(row.get("value", "")).replace("%", "\\%")
         mae = f"{float(row.get('mae_cells', 0)):.2f}" if pd.notna(row.get('mae_cells')) else "---"
         rmse = f"{float(row.get('rmse_cells', 0)):.2f}" if pd.notna(row.get('rmse_cells')) else "---"
         signed = f"{float(row.get('mean_signed_error_cells', 0)):.2f}" if pd.notna(row.get('mean_signed_error_cells')) else "---"
@@ -200,13 +213,14 @@ def generate_bias_table(bias_csv_path: str, out_tex_path: str):
     tex = r"""\begin{table}[H]
 \centering
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llccccc}
 \toprule
 \textbf{Subgroup} & \textbf{Partition} & \textbf{MAE (cells)} & \textbf{RMSE (cells)} & \textbf{Signed Err} & \textbf{Inadm. Rate} & \textbf{$\Delta_{\text{expanded}}$ vs Man.} \\
 \midrule
 """ + rows_str + r"""
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \caption{Environmental and topological subgroup evaluation (Bias and Fairness analysis).}
 \label{tab:bias_results}
 \end{table}

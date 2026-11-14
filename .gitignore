@@ -9,11 +9,15 @@ __pycache__/
 .venv/
 venv/
 
-# Model files (for later deliverables)
-models/
+# Model files
+# The small scikit-learn fallback artefacts are committed so the headline
+# numbers can be reproduced; large PyTorch checkpoints stay out of Git.
+models/*
+!models/fallback_mlp_classifier.joblib
+!models/fallback_mlp_regressor.joblib
+!models/README.md
 *.pt
 *.pth
-*.joblib
 
 # LaTeX build files (keep main.tex and the compiled PDF)
 *.aux

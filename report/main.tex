@@ -1,9 +1,9 @@
 \documentclass[11pt]{article}
 
 % ---------------------------------------------------------------------------
-% Deliverable 1 - Problem Definition & Data Foundations
+% Deliverable 3 - Comparative Analysis, Ablations, and Final Report
 % Track B (Research & Development), Course AI-2002 Artificial Intelligence
-% Compile on Overleaf: upload main.tex together with the `figures/` folder.
+% Compile on Overleaf: upload main.tex with report/, figures/, and data_scripts/.
 % ---------------------------------------------------------------------------
 
 \usepackage[margin=1in]{geometry}
@@ -21,9 +21,12 @@
 \graphicspath{{figures/}}
 \captionsetup{font=small, labelfont=bf}
 \setlist{nosep}
+\sloppy
+
+\input{report/generated/phase5_macros.tex}
 
 \title{\textbf{Neural-Guided Heuristics versus Classical Pathfinding\\ in Dynamic Grid-Mazes}\\[4pt]
-\large Deliverable 2 --- Model Architecture \& Empirical Evaluation}
+\large Deliverable 3 --- Comparative Analysis, Ablations, and Final Report}
 \author{
   Muhammad Abdullah Saeed \and
   Muhammad Hamid Abad \and
@@ -36,16 +39,25 @@
 
 \begin{abstract}
 \noindent
-This report presents the architecture formulation, optimization strategy, and rigorous
-empirical evaluation for a study comparing classical A$^\ast$ search (Manhattan-distance baseline)
-with a neural-network-guided A$^\ast$ on complex procedurally generated grid mazes.
-We introduce a multi-task neural network operating on 29 local and global spatial features
-to jointly regress continuous geodesic distances ($h^\ast/N$) and predict auxiliary 10-bin distance
-deciles. Evaluated across 282 unseen test environments against Dijkstra and exact Oracle bounds,
-the neural heuristic achieves strong predictive fidelity ($R^2 = 0.8597$, OvR Macro AUC-ROC = $0.9444$).
-Integrated into search with Manhattan clipping, the neural heuristic achieves a 100\% problem
-solving rate, an optimality ratio of $1.001$, and sub-2 millisecond search latency per maze,
-providing empirical validation of learned heuristic pathfinding on obstructed topologies.
+This report studies whether a neural network that predicts the exact cost-to-goal
+$h^\ast$ can replace the Manhattan-distance heuristic inside A$^\ast$ on procedurally
+generated grid mazes. The evaluated model is a two-hidden-layer MLP over 29 geometric
+and local-wall features, trained on a random 100k-cell sample of the training split
+and evaluated on 282 unseen mazes against Dijkstra, Manhattan, and an oracle. It fits the
+regression target well ($R^2=\PfiveRtwo$, MAE $=\PfiveMae$); a companion 10-bin
+classifier reaches macro AUC-ROC $=\PfiveAuc$. Nevertheless, the
+central search hypothesis is \emph{not supported}: raw neural A$^\ast$ expands
+\PfiveRawNodes{} nodes on average versus \PfiveManhattanNodes{} for Manhattan
+(\PfiveRawRelative{}\%, $p=\PfiveRawP$) and wins on only \PfiveRawWins{}\% of mazes.
+Manhattan clipping restores near-parity (\PfiveClipNodes{} nodes, \PfiveClipRelative{}\%)
+but yields no gain. A feature ablation shows that the two goal-offset features carry
+almost all of the signal, while the $5\times5$ wall window adds regression accuracy but
+increases expansions. A failure analysis explains the result: the raw field violates
+adjacent-pair consistency on \PfiveConsistencyRaw{}\% of free-cell pairs, overestimates
+near the goal, underestimates far from it, and is most harmful on low-density and
+direct mazes where Manhattan is already optimal. We report this as a measured negative
+result and document a reproducibility limitation: the committed PyTorch checkpoint is a
+one-epoch smoke test, so the shipped scikit-learn model supplies all headline numbers.
 \end{abstract}
 
 % ===========================================================================
@@ -422,6 +434,7 @@ representation.
 \input{report/sections/phase3_model.tex}
 \input{report/sections/phase3_training.tex}
 \input{report/sections/phase4_evaluation.tex}
+\input{report/sections/phase5_results.tex}
 \input{report/sections/collaboration.tex}
 
 % ===========================================================================
@@ -442,22 +455,55 @@ python scripts/run_baselines.py           # Baselines   -> results/evaluation/
 python scripts/run_evaluation.py          # Benchmarks  -> results/evaluation/
 python scripts/make_figures.py            # Figures     -> figures/
 python scripts/results_to_latex.py        # Tables      -> report/generated/
+
+# Phase 5: Comparative, Ablation, and Failure Analysis
+python scripts/failure_analysis.py        # paired tests, bias, strata
+python scripts/sample_predictions.py      # qualitative traces
+python scripts/run_feature_ablation.py    # feature-group ablation
+python scripts/make_ablation_summary.py   # ablation LaTeX tables
+python scripts/run_torch_search.py --audit-only   # checkpoint audit
+python scripts/make_phase5_report_assets.py       # Phase 5 tables/macros
+python scripts/demo.py --all-samples      # end-to-end demo
+
+# Verification
+python -m pytest -q                       # 170 tests
 \end{verbatim}
 
-Generated data and model weights are excluded from version control via
-\texttt{.gitignore}; all code, test suites, figures, and report tables are tracked.
+The evaluation is deterministic given seed $42$; the scikit-learn fallback model is the
+artefact behind every headline number. The PyTorch checkpoint is audited and refused by
+default because it is a smoke-test artefact (Phase~5). Generated data and the large
+PyTorch checkpoint are excluded via \texttt{.gitignore}; the small scikit-learn
+fallback artefacts are committed with SHA-256 checksums in \texttt{models/README.md}.
+All code, tests, figures, result summaries, and report tables are tracked.
 
 % ===========================================================================
 \section{Conclusion}
 % ===========================================================================
-Deliverable~2 successfully establishes the model architecture, multi-task optimization
-framework, and rigorous empirical evaluation comparing classical graph-search heuristics
-with learned neural heuristics. Across 282 unseen test environments spanning diverse obstacle
-densities and procedural generator regimes, the neural heuristic accurately reflects geodesic
-distances ($R^2 = 0.8597$) and cleanly separates distance deciles (OvR Macro AUC-ROC = $0.9444$).
-When integrated into A$^\ast$ search with Manhattan clipping, the neural heuristic achieves
-near-exact path optimality ($1.001$), sub-2 ms latency, and a 100\% solving rate, laying the
-foundation for hyperparameter ablations and dynamic deployment in subsequent project phases.
+This deliverable set out to test whether a learned approximation of $h^\ast$ improves
+A$^\ast$ search on procedurally generated mazes. The answer is a carefully measured
+\emph{no}. The model fits the regression target well ($R^2=\PfiveRtwo$, macro AUC-ROC
+$=\PfiveAuc$), yet raw neural A$^\ast$ expands \PfiveRawRelative{}\% more nodes than
+Manhattan and wins on only \PfiveRawWins{}\% of the 282 test mazes. Clipping to Manhattan
+restores near-parity (\PfiveClipRelative{}\%) but produces no gain, because clipping
+discards the learned field precisely on the mazes where it differs from Manhattan.
+
+The diagnostic analysis explains the gap. The field violates adjacent-pair consistency on
+\PfiveConsistencyRaw{}\% of free-cell pairs, overestimates near the goal, underestimates
+far from it, and is most harmful on low-density, direct mazes where Manhattan is already
+optimal. A feature ablation shows that the two goal-offset features carry almost all of the
+regression signal, while the $5\times5$ wall window improves average accuracy but worsens
+search. These findings identify the missing ingredient: a local feature vector and a
+mean-squared-error objective are not sufficient for a useful search heuristic.
+
+Two limitations bound the result. First, the committed PyTorch checkpoint is a one-epoch
+smoke test; the headline benchmark uses the scikit-learn fallback model, and the torch
+path is audited rather than benchmarked. Second, all experiments use one training seed and
+the same two generators. Future work should retrain the torch model, replace the local MLP
+with a whole-grid convolutional encoder as in Neural~A$^\ast$ \cite{yonetani2021}, and train
+with a search-aware or consistency-regularised objective rather than plain regression.
+The negative result and the diagnostic protocol---paired tests, feature ablation,
+consistency measurement, bias stratification, and failure traces---are the main empirical
+contribution of the project.
 
 % ===========================================================================
 \begin{thebibliography}{9}
@@ -483,21 +529,30 @@ in \emph{Proc. International Conference on Machine Learning (ICML)}, 2021.
 
 \section{Repository Structure}
 % ===========================================================================
+{\small
 \begin{verbatim}
 .
 |-- README.md
 |-- requirements.txt
-|-- data_scripts/
-|   |-- generate_mazes.py     # Phase 2: maze generation + generation_log.json
-|   |-- compute_labels.py     # Phase 2: Dijkstra ground-truth labels
-|   |-- clean_data.py         # Phase 2: cleaning (unreachable, dup, IQR)
-|   |-- features.py           # Phase 2: 29-dim features + 70/15/15 split
-|   `-- eda.py                # Phase 2: EDA figures
-|-- figures/                  # EDA charts used in this report
+|-- data_scripts/             # Phase 2: generation, labels, cleaning, features, EDA
+|-- src/                      # search, features, models, metrics, analysis
+|   |-- search.py             # deterministic A* + heuristic protocol
+|   |-- final_analysis.py     # paired tests, consistency, bias, strata
+|   |-- sklearn_heuristic.py  # evaluated fallback heuristic wrapper
+|   `-- heuristics.py         # PyTorch heuristic wrapper
+|-- scripts/                  # training, evaluation, ablations, demo, report assets
+|-- tests/                    # 170 unit and integration tests
+|-- figures/                  # report figures (EDA, evaluation, failure, traces)
+|-- results/
+|   |-- evaluation/           # per-maze benchmark CSV + JSON summaries
+|   |-- analysis/             # failure, ablation, torch audit outputs
+|   `-- reproducibility/      # checkpoint audit
 |-- data/                     # generated data (git-ignored)
 `-- report/
     |-- main.tex
-    `-- Neural_Heuristic_Research.pdf
+    |-- sections/             # phases 3-5, appendix, collaboration
+    `-- generated/            # data-driven LaTeX tables and macros
 \end{verbatim}
+}
 
 \end{document}

@@ -1,0 +1,31 @@
+{
+  "checkpoint": "C:\\Users\\hp\\Documents\\Neural-Heuristic-Research\\models\\neural_heuristic_seed42.pt",
+  "architecture": {
+    "input_dim": 29,
+    "hidden_dims": [
+      256,
+      256,
+      128
+    ],
+    "dropout": 0.1,
+    "activation": "relu",
+    "n_bins": 10
+  },
+  "parameters": 107787,
+  "seed": 42,
+  "git_commit": "83824ce5b4d0f279e9f674998a186dc16d59e768",
+  "configured_epochs": 1,
+  "max_train_cells_per_epoch": 20000,
+  "best_epoch": 1,
+  "val_mae": 0.28855761751684034,
+  "target_mean": 0.7381087995288803,
+  "target_std": 0.36828296684921064,
+  "under_trained": true,
+  "reasons": [
+    "configured epochs=1",
+    "best_epoch=1",
+    "max_train_cells_per_epoch=20000",
+    "val_mae=0.2886"
+  ],
+  "recommendation": "Retrain with `python -m src.train --epochs 30 --max-train-cells-per-epoch 0` before quoting search numbers, or quote the scikit-learn fallback results."
+}

@@ -1,0 +1,17 @@
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Comparison} & \textbf{Base} & \textbf{Treat.} & \textbf{Change} & \textbf{95\% CI} & \textbf{$p$} & \textbf{W/T/L} \\
+\midrule
+Raw neural vs Manhattan & 180.8 & 557.0 & +208.1\% & [316.9, 440.3] & $4.56\times10^{-47}$ & 5/1/276 \\
+Clipped neural vs Manhattan & 180.8 & 188.0 & +4.0\% & [3.2, 11.6] & $5.84\times10^{-11}$ & 52/77/153 \\
+Raw neural vs clipped & 188.0 & 557.0 & +196.4\% & [311.2, 431.7] & $5.01\times10^{-47}$ & 4/1/277 \\
+\bottomrule
+\end{tabular}
+\caption{Paired node-expansion comparisons over the 282 test mazes. Change is
+relative to the baseline; W/T/L counts mazes where the treatment expands fewer,
+the same, or more nodes. $p$ is the two-sided Wilcoxon signed-rank test.}
+\label{tab:phase5_comparison}
+\end{table}

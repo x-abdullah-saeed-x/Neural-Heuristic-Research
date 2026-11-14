@@ -1,17 +1,18 @@
 \begin{table}[H]
 \centering
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccc}
 \toprule
-\textbf{Scale Factor $\alpha$} & \textbf{Mean Expanded} & \textbf{Median Expanded} & \textbf{Reduction vs Man.} & \textbf{Optimality Ratio} & \textbf{Success Rate} \\
+\textbf{Scale Factor $\alpha$} & \textbf{Mean Expanded} & \textbf{Median Expanded} & \textbf{Change vs Man.} & \textbf{Optimality Ratio} & \textbf{Success Rate} \\
 \midrule
-$\alpha = 0.6$ & 1133.0 & 784 & -819.7\% & 1.009 & 100.0\% \\
-$\alpha = 0.7$ & 990.4 & 656 & -690.0\% & 1.013 & 100.0\% \\
-$\alpha = 0.8$ & 846.4 & 550 & -565.2\% & 1.019 & 100.0\% \\
-$\alpha = 0.9$ & 711.8 & 439 & -451.7\% & 1.027 & 100.0\% \\
-$\alpha = 1.0$ & 547.1 & 342 & -309.3\% & 1.034 & 100.0\% \\
+$\alpha = 0.6$ & 1135.9 & 777 & +528.3\% & 1.008 & 100.0\% \\
+$\alpha = 0.7$ & 988.4 & 661 & +446.7\% & 1.013 & 100.0\% \\
+$\alpha = 0.8$ & 853.4 & 540 & +372.1\% & 1.020 & 100.0\% \\
+$\alpha = 0.9$ & 711.9 & 462 & +293.8\% & 1.026 & 100.0\% \\
+$\alpha = 1.0$ & 557.0 & 349 & +208.1\% & 1.032 & 100.0\% \\
 \bottomrule
-\end{tabular}
-\caption{Heuristic scaling parameter ($\alpha$) sensitivity sweep on the test set.}
+\end{tabular}}
+\caption{Heuristic scaling parameter ($\alpha$) sensitivity sweep on the test set. Change is relative to the Manhattan mean; positive values mean more expansions.}
 \label{tab:alpha_sweep}
 \end{table}

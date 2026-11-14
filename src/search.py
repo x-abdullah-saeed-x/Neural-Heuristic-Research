@@ -22,6 +22,7 @@ class SearchResult:
     heuristic_calls: int
     runtime_ms: float
     peak_open: int
+    expanded: Optional[list[tuple[int, int]]] = None
 
 
 class ManhattanHeuristic:
@@ -60,6 +61,7 @@ def astar(
     goal: tuple[int, int],
     heuristic: Callable[[int, int], float],
     tie_break: str = "h",
+    record_expanded: bool = False,
 ) -> SearchResult:
     """Execute A* search on a 4-connected 2D grid with uniform move cost 1.0.
 
@@ -75,6 +77,10 @@ def astar(
         Callable returning estimated distance from (r, c) to goal.
     tie_break : str, optional
         Tie-breaking rule for open set: 'h' prefers smaller h value; default 'h'.
+    record_expanded : bool, optional
+        When true, ``SearchResult.expanded`` lists the closed cells in the order
+        they were expanded. Used for search-trace figures; disabled by default
+        so normal benchmarks keep the lightweight result object.
 
     Returns
     -------
@@ -96,6 +102,7 @@ def astar(
             heuristic_calls=0,
             runtime_ms=elapsed_ms,
             peak_open=0,
+            expanded=[] if record_expanded else None,
         )
 
     if grid[start[0], start[1]] == 1 or grid[goal[0], goal[1]] == 1:
@@ -109,6 +116,7 @@ def astar(
             heuristic_calls=0,
             runtime_ms=elapsed_ms,
             peak_open=0,
+            expanded=[] if record_expanded else None,
         )
 
     # Edge case: start == goal
@@ -123,6 +131,7 @@ def astar(
             heuristic_calls=0,
             runtime_ms=elapsed_ms,
             peak_open=1,
+            expanded=[] if record_expanded else None,
         )
 
     g_score = np.full((H, W), np.inf, dtype=np.float64)
@@ -157,6 +166,7 @@ def astar(
     DIRECTIONS = ((-1, 0), (1, 0), (0, -1), (0, 1))
 
     found = False
+    expanded_cells: list[tuple[int, int]] = []
 
     while open_heap:
         if tie_break == "h":
@@ -169,6 +179,8 @@ def astar(
 
         closed[r, c] = True
         nodes_expanded += 1
+        if record_expanded:
+            expanded_cells.append((r, c))
 
         if (r, c) == goal:
             found = True
@@ -225,6 +237,7 @@ def astar(
             heuristic_calls=heuristic_calls,
             runtime_ms=elapsed_ms,
             peak_open=peak_open,
+            expanded=expanded_cells if record_expanded else None,
         )
 
     return SearchResult(

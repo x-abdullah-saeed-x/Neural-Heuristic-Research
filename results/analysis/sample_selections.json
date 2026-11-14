@@ -1,0 +1,125 @@
+{
+  "selections": {
+    "good": {
+      "file_name": "mazes_perlin_20_10.npz",
+      "local_index": 42,
+      "generator": "perlin",
+      "size": 20,
+      "density": 10,
+      "neural_ratio": 0.725,
+      "manhattan_nodes": 40.0,
+      "neural_nodes": 29.0,
+      "clipped_nodes": 40.0
+    },
+    "typical": {
+      "file_name": "mazes_backtracker_60_30.npz",
+      "local_index": 28,
+      "generator": "backtracker",
+      "size": 60,
+      "density": 30,
+      "neural_ratio": 2.4854368932038833,
+      "manhattan_nodes": 206.0,
+      "neural_nodes": 512.0,
+      "clipped_nodes": 211.0
+    },
+    "bad": {
+      "file_name": "mazes_perlin_60_20.npz",
+      "local_index": 4,
+      "generator": "perlin",
+      "size": 60,
+      "density": 20,
+      "neural_ratio": 17.333333333333332,
+      "manhattan_nodes": 57.0,
+      "neural_nodes": 988.0,
+      "clipped_nodes": 57.0
+    }
+  },
+  "measured": {
+    "good": {
+      "case": "good",
+      "file_name": "mazes_perlin_20_10.npz",
+      "local_index": 42,
+      "generator": "perlin",
+      "size": 20,
+      "density": 10,
+      "neural_ratio": 0.725,
+      "manhattan_nodes": 40.0,
+      "neural_nodes": 29.0,
+      "clipped_nodes": 40.0,
+      "manhattan": {
+        "nodes_expanded": 40,
+        "cost": 19.0,
+        "optimality_ratio": 1.0
+      },
+      "neural_alpha_1.0": {
+        "nodes_expanded": 29,
+        "cost": 19.0,
+        "optimality_ratio": 1.0
+      },
+      "neural_clipped_manhattan": {
+        "nodes_expanded": 40,
+        "cost": 19.0,
+        "optimality_ratio": 1.0
+      }
+    },
+    "typical": {
+      "case": "typical",
+      "file_name": "mazes_backtracker_60_30.npz",
+      "local_index": 28,
+      "generator": "backtracker",
+      "size": 60,
+      "density": 30,
+      "neural_ratio": 2.4854368932038833,
+      "manhattan_nodes": 206.0,
+      "neural_nodes": 512.0,
+      "clipped_nodes": 211.0,
+      "manhattan": {
+        "nodes_expanded": 206,
+        "cost": 62.0,
+        "optimality_ratio": 1.0
+      },
+      "neural_alpha_1.0": {
+        "nodes_expanded": 512,
+        "cost": 64.0,
+        "optimality_ratio": 1.032258064516129
+      },
+      "neural_clipped_manhattan": {
+        "nodes_expanded": 211,
+        "cost": 62.0,
+        "optimality_ratio": 1.0
+      }
+    },
+    "bad": {
+      "case": "bad",
+      "file_name": "mazes_perlin_60_20.npz",
+      "local_index": 4,
+      "generator": "perlin",
+      "size": 60,
+      "density": 20,
+      "neural_ratio": 17.333333333333332,
+      "manhattan_nodes": 57.0,
+      "neural_nodes": 988.0,
+      "clipped_nodes": 57.0,
+      "manhattan": {
+        "nodes_expanded": 57,
+        "cost": 56.0,
+        "optimality_ratio": 1.0
+      },
+      "neural_alpha_1.0": {
+        "nodes_expanded": 988,
+        "cost": 66.0,
+        "optimality_ratio": 1.1785714285714286
+      },
+      "neural_clipped_manhattan": {
+        "nodes_expanded": 57,
+        "cost": 56.0,
+        "optimality_ratio": 1.0
+      }
+    }
+  },
+  "backend": "sklearn",
+  "figures": [
+    "figures\\sample_search_traces.png",
+    "figures\\sample_prediction_fields.png"
+  ]
+}

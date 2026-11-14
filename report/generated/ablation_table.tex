@@ -1,0 +1,23 @@
+\begin{table}[H]
+\centering
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Feature set} & \textbf{Dim.} & \textbf{$R^2$} & \textbf{MAE} & \textbf{MAE (cells)} & \textbf{Nodes} & \textbf{vs Man.} & \textbf{Opt. ratio} \\
+\midrule
+All 29 features & 29 & 0.8645 & 0.0692 & 4.15 & 228.5 & 2.02 & 1.025 \\
+Without coordinates & 27 & 0.8656 & 0.0700 & 4.20 & 233.8 & 2.07 & 1.031 \\
+Without goal offsets & 27 & 0.0678 & 0.2915 & 17.49 & 1115.2 & 9.87 & 1.021 \\
+Without $5\times5$ wall window & 4 & 0.8545 & 0.0740 & 4.44 & 267.8 & 2.37 & 1.006 \\
+Goal offsets only & 2 & 0.8552 & 0.0755 & 4.53 & 174.4 & 1.54 & 1.003 \\
+Coordinates only & 2 & 0.0711 & 0.2907 & 17.44 & 1125.8 & 9.97 & 1.000 \\
+Wall window only & 25 & 0.0157 & 0.3003 & 18.02 & 1111.9 & 9.84 & 1.017 \\
+\bottomrule
+\end{tabular}}
+\caption{Feature-group ablation. Each row retrains the same MLP on the stated
+input subset and evaluates regression fidelity on the test cells and A$^\ast$
+expansions on a common 24-maze test subset. ``MAE (cells)'' scales the
+normalised MAE by $N=60$ for comparability with earlier tables.}
+\label{tab:feature_ablation}
+\end{table}

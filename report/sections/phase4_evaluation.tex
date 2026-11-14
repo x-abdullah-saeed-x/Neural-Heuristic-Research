@@ -8,6 +8,13 @@ To rigorously assess the performance of the learned neural heuristic relative to
 and oracle baselines, we establish an evaluation protocol spanning regression fidelity, auxiliary
 classification discrimination, and end-to-end graph search efficiency.
 
+\textbf{Artefact note.} The PyTorch multi-task network described in Phase~3 is implemented and
+unit-tested, but the shipped \texttt{neural\_heuristic\_seed42.pt} checkpoint is a one-epoch
+smoke run rather than the trained model. The committed headline benchmark therefore uses a
+scikit-learn MLP regressor with the same 29-feature interface and target normalisation
+(\texttt{models/fallback\_mlp\_regressor.joblib}). Phase~5 audits the torch checkpoint explicitly;
+all numbers in this section come from the scikit-learn artefact.
+
 \subsubsection{Data Leakage Prevention and Split Structure}
 Evaluation is strictly isolated on the unseen test set of 282 mazes partition (15\% of
 the cleaned corpus), partitioned by complete maze environment rather than individual cell
@@ -51,32 +58,15 @@ During deterministic $A^\ast$ execution, we measure:
     \item \textbf{Runtime and Peak Open Set}: CPU wall-clock latency per maze and memory footprint.
 \end{enumerate}
 
-\subsection{Training Dynamics and Convergence}
-The multi-task neural network was trained on 4.41 million cell samples. Figure~\ref{fig:training_curves}
-illustrates the convergence trajectories across training epochs.
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{figures/training_loss.png}
-        \caption{Loss (MSE)}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{figures/training_mae.png}
-        \caption{MAE ($h^\ast/N$)}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{figures/training_bin_accuracy.png}
-        \caption{10-Bin Accuracy}
-    \end{subfigure}
-    \caption{Training and validation performance dynamics across learning epochs.}
-    \label{fig:training_curves}
-\end{figure}
-
-The model demonstrates steady convergence with consistent decrease in validation loss
-and absence of pathological overfitting, stabilizing at a normalized validation MAE below 0.15.
+\subsection{Training Convergence}
+The evaluated scikit-learn fallback converged after 17 epochs, reaching a final training
+loss of $0.00763$ and a best internal validation score of $0.8714$ (the coefficient of
+determination on the held-out validation fraction). The companion 10-bin classifier
+converged after 21 epochs. These runs use the fixed configuration of
+Table~\ref{tab:fallback_config}; no further hyperparameter search was performed because
+the CPU budget was reserved for the five-fold evaluation and the Phase~5 ablations. The
+PyTorch reference path uses the same data and target but is represented in this report by
+a smoke checkpoint, which Phase~5 audits explicitly.
 
 \subsection{Offline Regression and Admissibility Analysis}
 Table~\ref{tab:regression_results} summarizes cell-level regression fidelity evaluated across
@@ -84,10 +74,11 @@ unseen test environments.
 
 \input{report/generated/regression_table.tex}
 
-The model achieves a high coefficient of determination ($R^2 = 0.8597$) and strong linear correlation
-($r = 0.9272$, $\rho = 0.9261$), validating that local 5$\times$5 wall context combined with
-goal offsets successfully capture global topological impedance. On a standard $60 \times 60$ grid,
-the root mean squared error is approximately 8.4 cells.
+The model achieves a high coefficient of determination ($R^2 = \PfiveRtwo$) and strong rank
+correlation ($r = \PfivePearson$, $\rho = \PfiveSpearman$), showing that goal offsets combined
+with the local wall window capture much of the variation in $h^\ast$. On a standard
+$60 \times 60$ grid the root mean squared error is \PfiveRmseCells{} cells and the mean absolute
+error is \PfiveMaeCells{} cells.
 
 \begin{figure}[H]
     \centering
@@ -104,11 +95,13 @@ the root mean squared error is approximately 8.4 cells.
     \label{fig:regression_scatters}
 \end{figure}
 
-As shown in Figure~\ref{fig:regression_scatters}, residuals follow a symmetric zero-centered
-distribution with minimal systematic drift. The empirical cumulative distribution of overestimation
-is visualized in Figure~\ref{fig:admissibility_cdf}. While unconstrained neural outputs can
-produce overestimation, scaling $\alpha < 1.0$ or clipping against Manhattan distances guarantees
-strict admissibility when absolute path optimality is required.
+As shown in Figure~\ref{fig:regression_scatters}, the residuals are broadly symmetric but not
+zero-mean: the mean signed error is \PfiveSignedBiasCells{} cells at $N=60$, and the tails are
+heavy, with a maximum absolute error of \PfiveMaxAbsCells{} cells. The empirical cumulative
+distribution of overestimation is visualized in Figure~\ref{fig:admissibility_cdf}. While
+unconstrained neural outputs can overestimate, scaling $\alpha < 1.0$ or clipping against
+Manhattan distance removes positive error and restores admissibility; Phase~5 shows that this
+also removes most of the learned signal.
 
 \begin{figure}[H]
     \centering
@@ -122,7 +115,7 @@ Table~\ref{tab:classification_results} details the classification performance ac
 
 \input{report/generated/classification_table.tex}
 
-The model demonstrates strong discriminative capability with an OvR Macro AUC-ROC of 0.9444.
+The model demonstrates strong discriminative capability with an OvR Macro AUC-ROC of \PfiveAuc{}.
 Figure~\ref{fig:classification_plots} shows the corresponding normalized confusion matrix and
 multi-class ROC curves. Classification confusion is concentrated exclusively in adjacent
 diagonal neighbors, confirming that distance misclassifications are bounded local errors rather
@@ -166,8 +159,11 @@ and the perfect Oracle across all 282 test mazes.
 \end{figure}
 
 All tested heuristics solved 100\% of the 282 test mazes. The perfect Oracle expands a mean of only
-52.8 nodes, representing a 41.8\% reduction compared to Manhattan A$^\ast$ (180.8 nodes).
-Neural clipped Manhattan achieves an optimality ratio of 1.001 with sub-2 ms latency.
+\PfiveOracleNodes{} nodes, representing a 70.8\% reduction compared to Manhattan A$^\ast$
+(\PfiveManhattanNodes{} nodes). Neural clipped Manhattan achieves an optimality ratio of 1.001
+at \PfiveClipRuntime{}~ms per maze; the raw neural heuristic expands \PfiveRawNodes{} nodes,
+more than three times the Manhattan baseline. Phase~5 tests whether that difference is
+statistically reliable and explains its mechanism.
 
 \subsubsection{Scaling Sensitivity Parameter Sweep ($\alpha$)}
 To explore the trade-off between search efficiency and path optimality, we swept scaling parameter
@@ -175,9 +171,10 @@ $\alpha \in [0.6, 1.0]$ in Table~\ref{tab:alpha_sweep}.
 
 \input{report/generated/alpha_sweep_table.tex}
 
-Increasing $\alpha$ focuses the search beam more aggressively toward the goal, reducing expanded
-nodes from 1,133 at $\alpha=0.6$ down to 547 at $\alpha=1.0$, with path cost remaining within 3.4\%
-of optimal shortest paths.
+Increasing $\alpha$ sharpens the field, reducing expanded nodes from \PfiveAlphaSixNodes{} at
+$\alpha=0.6$ down to \PfiveRawNodes{} at $\alpha=1.0$, while path cost remains within
+$3.3$\% of optimal (\PfiveAlphaOneOpt{}$\times$). Even the most aggressive setting remains
+far more expensive than Manhattan, a gap analysed in Phase~5.
 
 \subsection{Error Analysis and Qualitative Comparison}
 Figure~\ref{fig:heatmaps} presents visual comparison of ground-truth geodesic distance $h^\ast$,
@@ -223,7 +220,9 @@ obstacle densities, cell positions, and wall clustering.
     \label{fig:subgroup_breakdowns}
 \end{figure}
 
-Performance remains balanced across both maze generators (backtracker corridors and Perlin noise blobs).
-As expected, cell-level errors scale proportionally with grid dimension $N$ because normalized
-errors are magnified by grid scale. Crucially, the 100\% success rate is maintained across all
-subgroups, demonstrating robust generalizability across diverse topological regimes.
+Performance is \emph{not} uniform across generators and densities. The table shows larger
+regressions for backtracker mazes than for Perlin mazes, and the largest relative expansion
+increase at 10\% obstacle density---the easiest configuration, where Manhattan is already close
+to optimal. The 100\% success rate is maintained across all subgroups, so the variation is an
+efficiency effect, not a correctness failure. Phase~5 replaces the descriptive subgroup table
+with paired tests, tortuosity strata, and a mechanism-level analysis.

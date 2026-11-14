@@ -1,0 +1,26 @@
+{
+  "backend": "sklearn",
+  "cases": [
+    {
+      "file_name": "mazes_perlin_60_20.npz",
+      "local_index": 4,
+      "grid_size": 60,
+      "backend": "sklearn",
+      "alpha": 1.0,
+      "mode": "raw",
+      "manhattan_nodes": 57,
+      "neural_nodes": 988,
+      "nodes_ratio": 17.333333333333332,
+      "manhattan_cost": 56.0,
+      "neural_cost": 66.0,
+      "manhattan_optimality_ratio": 1.0,
+      "neural_optimality_ratio": 1.1785714285714286,
+      "manhattan_runtime_ms": 0.46870007645338774,
+      "neural_runtime_ms": 5.522800027392805,
+      "field_mae_cells": 4.613949746959696,
+      "field_bias_cells": 1.0462020392548752,
+      "field_overestimation_rate": 0.6446682875998611,
+      "field_r2": 0.9214770118354458
+    }
+  ]
+}

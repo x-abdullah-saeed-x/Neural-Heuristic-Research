@@ -1,0 +1,108 @@
+{
+  "mazes": 48,
+  "manhattan": {
+    "mean_nodes_expanded": 153.77083333333334,
+    "median_nodes_expanded": 62.5,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 3.0814250082282038,
+    "relative_to_manhattan": 1.0
+  },
+  "oracle": {
+    "mean_nodes_expanded": 50.916666666666664,
+    "median_nodes_expanded": 44.0,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 1.4820708383922465,
+    "relative_to_manhattan": 0.3311204443842297
+  },
+  "torch_alpha_0.6": {
+    "mean_nodes_expanded": 1905.7708333333333,
+    "median_nodes_expanded": 1491.5,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 45.80944584692285,
+    "relative_to_manhattan": 12.393578105947702
+  },
+  "torch_alpha_0.7": {
+    "mean_nodes_expanded": 1902.6458333333333,
+    "median_nodes_expanded": 1478.5,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 39.22843334536689,
+    "relative_to_manhattan": 12.373255656415118
+  },
+  "torch_alpha_0.8": {
+    "mean_nodes_expanded": 1901.0625,
+    "median_nodes_expanded": 1473.0,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 38.128822923075255,
+    "relative_to_manhattan": 12.362958948651944
+  },
+  "torch_alpha_0.9": {
+    "mean_nodes_expanded": 1896.4375,
+    "median_nodes_expanded": 1463.0,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 37.04464583279332,
+    "relative_to_manhattan": 12.33288172334372
+  },
+  "torch_alpha_1": {
+    "mean_nodes_expanded": 1895.5,
+    "median_nodes_expanded": 1473.5,
+    "mean_optimality_ratio": 1.0014333218667584,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 37.02670833445154,
+    "relative_to_manhattan": 12.326784988483945
+  },
+  "torch_clipped": {
+    "mean_nodes_expanded": 375.125,
+    "median_nodes_expanded": 116.5,
+    "mean_optimality_ratio": 1.0,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 8.410070833633654,
+    "relative_to_manhattan": 2.4395068418913426
+  },
+  "torch_raw": {
+    "mean_nodes_expanded": 1895.5,
+    "median_nodes_expanded": 1473.5,
+    "mean_optimality_ratio": 1.0014333218667584,
+    "success_rate": 1.0,
+    "mean_runtime_ms": 43.42338334390661,
+    "relative_to_manhattan": 12.326784988483945
+  },
+  "checkpoint_audit": {
+    "checkpoint": "C:\\Users\\hp\\Documents\\Neural-Heuristic-Research\\models\\neural_heuristic_seed42.pt",
+    "architecture": {
+      "input_dim": 29,
+      "hidden_dims": [
+        256,
+        256,
+        128
+      ],
+      "dropout": 0.1,
+      "activation": "relu",
+      "n_bins": 10
+    },
+    "parameters": 107787,
+    "seed": 42,
+    "git_commit": "83824ce5b4d0f279e9f674998a186dc16d59e768",
+    "configured_epochs": 1,
+    "max_train_cells_per_epoch": 20000,
+    "best_epoch": 1,
+    "val_mae": 0.28855761751684034,
+    "target_mean": 0.7381087995288803,
+    "target_std": 0.36828296684921064,
+    "under_trained": true,
+    "reasons": [
+      "configured epochs=1",
+      "best_epoch=1",
+      "max_train_cells_per_epoch=20000",
+      "val_mae=0.2886"
+    ],
+    "recommendation": "Retrain with `python -m src.train --epochs 30 --max-train-cells-per-epoch 0` before quoting search numbers, or quote the scikit-learn fallback results."
+  },
+  "allow_untrained": true,
+  "seed": 42
+}

@@ -1,0 +1,30 @@
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lrccccc}
+\toprule
+\textbf{Stratum} & \textbf{Mazes} & \textbf{Man.} & \textbf{Neural} & \textbf{Ratio} & \textbf{Clipped} & \textbf{Win \%} \\
+\midrule
+Generator: backtracker & 140 & 166.8 & 620.4 & 3.72$\times$ & 1.06$\times$ & 2.1\% \\
+Generator: Perlin & 142 & 194.6 & 494.6 & 2.54$\times$ & 1.02$\times$ & 1.4\% \\
+Size: 20 & 56 & 30.2 & 59.2 & 1.96$\times$ & 1.01$\times$ & 3.6\% \\
+Size: 40 & 58 & 80.6 & 203.3 & 2.52$\times$ & 1.02$\times$ & 1.7\% \\
+Size: 60 & 67 & 153.0 & 465.6 & 3.04$\times$ & 1.05$\times$ & 0.0\% \\
+Size: 80 & 45 & 307.1 & 816.9 & 2.66$\times$ & 1.03$\times$ & 2.2\% \\
+Size: 100 & 56 & 367.0 & 1321.9 & 3.60$\times$ & 1.05$\times$ & 1.8\% \\
+Density: 10\% & 80 & 96.2 & 636.1 & 6.62$\times$ & 1.11$\times$ & 1.2\% \\
+Density: 20\% & 81 & 135.1 & 495.3 & 3.67$\times$ & 1.04$\times$ & 2.5\% \\
+Density: 30\% & 68 & 187.8 & 485.6 & 2.59$\times$ & 1.04$\times$ & 0.0\% \\
+Density: 40\% & 53 & 369.5 & 623.9 & 1.69$\times$ & 1.01$\times$ & 3.8\% \\
+Tortuosity: direct & 174 & 95.6 & 554.1 & 5.80$\times$ & 1.07$\times$ & 1.7\% \\
+Tortuosity: mild & 64 & 268.1 & 529.2 & 1.97$\times$ & 1.04$\times$ & 3.1\% \\
+Tortuosity: moderate & 31 & 342.0 & 544.2 & 1.59$\times$ & 1.01$\times$ & 0.0\% \\
+Tortuosity: severe & 13 & 507.2 & 764.3 & 1.51$\times$ & 1.01$\times$ & 0.0\% \\
+\bottomrule
+\end{tabular}
+\caption{Mean A$^\ast$ expansions by environment stratum for the raw neural
+heuristic. ``Ratio'' is neural/Manhattan; ``Clipped'' is the clipped variant's
+ratio; ``Win \%'' is the fraction of mazes where raw neural expands fewer nodes
+than Manhattan. The failure is largest on the easiest, most direct mazes.}
+\label{tab:phase5_strata}
+\end{table}
