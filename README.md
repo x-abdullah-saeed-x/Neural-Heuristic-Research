@@ -205,9 +205,3 @@ reported as a trained result.
 | **Abdullah Zia** | `@HarveyWebbs` | `src/search.py`, `src/metrics.py`, `src/evaluate.py`, `src/analysis.py`, `src/final_analysis.py` | A\* search, evaluation harness, baselines, paired statistics, failure analysis, LaTeX integration |
 | **Muhammad Abdullah Saeed** | `@x-abdullah-saeed-x` | `src/data.py`, `src/train.py`, `src/tune.py`, `src/config.py` | Data loaders, split manifests, training loop, tuning, checkpointing, artefact policy |
 | **Muhammad Hamid Abad** | `@Hamid4325` | `src/model.py`, `src/features.py`, `src/heuristics.py` | Multi-task architecture, feature refactoring, heuristic wrappers, ablations |
-
-## Viva Preparation
-
-See [`docs/VIVA_GUIDE.md`](docs/VIVA_GUIDE.md) for the one-page evidence map,
-likely examiner questions, and defensible answers grounded in the committed
-artefacts.
