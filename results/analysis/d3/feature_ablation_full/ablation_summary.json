@@ -1,0 +1,44 @@
+{
+  "feature_variants": [
+    {
+      "variant": "full_29",
+      "n_features": 29,
+      "mae_normalized": 0.0774047002196312,
+      "mae_change_vs_full": 0.0,
+      "r2": 0.8504018187522888,
+      "neural_mean_nodes": 558.581560283688
+    },
+    {
+      "variant": "without_wall_window",
+      "n_features": 4,
+      "mae_normalized": 0.07695138454437256,
+      "mae_change_vs_full": -0.0004533156752586365,
+      "r2": 0.8441944718360901,
+      "neural_mean_nodes": 449.76241134751774
+    },
+    {
+      "variant": "goal_offsets_only",
+      "n_features": 2,
+      "mae_normalized": 0.07859300076961517,
+      "mae_change_vs_full": 0.0011883005499839783,
+      "r2": 0.8451796770095825,
+      "neural_mean_nodes": 358.58156028368796
+    },
+    {
+      "variant": "without_goal_offsets",
+      "n_features": 27,
+      "mae_normalized": 0.29759398102760315,
+      "mae_change_vs_full": 0.22018928080797195,
+      "r2": 0.04608350992202759,
+      "neural_mean_nodes": 2044.113475177305
+    },
+    {
+      "variant": "without_coordinates",
+      "n_features": 27,
+      "mae_normalized": 0.07947967201471329,
+      "mae_change_vs_full": 0.0020749717950820923,
+      "r2": 0.8489910960197449,
+      "neural_mean_nodes": 561.0567375886525
+    }
+  ]
+}

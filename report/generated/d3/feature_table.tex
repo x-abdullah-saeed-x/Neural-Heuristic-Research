@@ -1,0 +1,17 @@
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Variant & Features & MAE & $R^2$ \\
+\midrule
+full\_29 & 29 & 0.077 & 0.850 \\
+without\_wall\_window & 4 & 0.077 & 0.844 \\
+goal\_offsets\_only & 2 & 0.079 & 0.845 \\
+without\_goal\_offsets & 27 & 0.298 & 0.046 \\
+without\_coordinates & 27 & 0.079 & 0.849 \\
+\bottomrule
+\end{tabular}
+\caption{Fresh feature-ablation results from the original D2 data split.}
+\label{tab:d3_features}
+\end{table}

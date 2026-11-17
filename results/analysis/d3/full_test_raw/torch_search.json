@@ -1,0 +1,2267 @@
+{
+  "backend": "torch",
+  "checkpoint_name": "neural_heuristic_seed42.pt",
+  "mode": "raw",
+  "alpha": 1.0,
+  "n_mazes": 282,
+  "manhattan_mean_nodes": 180.79432624113474,
+  "neural_mean_nodes": 498.57801418439715,
+  "per_maze": [
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_5",
+      "neural_nodes": 703,
+      "manhattan_nodes": 236,
+      "neural_cost": 71.0,
+      "optimal_cost": 67.0,
+      "optimality_ratio": 1.0597014925373134
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_13",
+      "neural_nodes": 3661,
+      "manhattan_nodes": 338,
+      "neural_cost": 130.0,
+      "optimal_cost": 130.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_32",
+      "neural_nodes": 3651,
+      "manhattan_nodes": 186,
+      "neural_cost": 134.0,
+      "optimal_cost": 134.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_34",
+      "neural_nodes": 2483,
+      "manhattan_nodes": 134,
+      "neural_cost": 101.0,
+      "optimal_cost": 101.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_39",
+      "neural_nodes": 2772,
+      "manhattan_nodes": 397,
+      "neural_cost": 107.0,
+      "optimal_cost": 107.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_41",
+      "neural_nodes": 2179,
+      "manhattan_nodes": 124,
+      "neural_cost": 109.0,
+      "optimal_cost": 109.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_42",
+      "neural_nodes": 1324,
+      "manhattan_nodes": 98,
+      "neural_cost": 71.0,
+      "optimal_cost": 71.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_10.npz_49",
+      "neural_nodes": 525,
+      "manhattan_nodes": 96,
+      "neural_cost": 92.0,
+      "optimal_cost": 88.0,
+      "optimality_ratio": 1.0454545454545454
+    },
+    {
+      "maze_id": "mazes_backtracker_100_20.npz_13",
+      "neural_nodes": 631,
+      "manhattan_nodes": 161,
+      "neural_cost": 63.0,
+      "optimal_cost": 57.0,
+      "optimality_ratio": 1.105263157894737
+    },
+    {
+      "maze_id": "mazes_backtracker_100_20.npz_15",
+      "neural_nodes": 2881,
+      "manhattan_nodes": 256,
+      "neural_cost": 126.0,
+      "optimal_cost": 126.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_20.npz_26",
+      "neural_nodes": 1048,
+      "manhattan_nodes": 378,
+      "neural_cost": 81.0,
+      "optimal_cost": 77.0,
+      "optimality_ratio": 1.051948051948052
+    },
+    {
+      "maze_id": "mazes_backtracker_100_20.npz_31",
+      "neural_nodes": 1360,
+      "manhattan_nodes": 127,
+      "neural_cost": 85.0,
+      "optimal_cost": 85.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_20.npz_43",
+      "neural_nodes": 1446,
+      "manhattan_nodes": 637,
+      "neural_cost": 88.0,
+      "optimal_cost": 86.0,
+      "optimality_ratio": 1.0232558139534884
+    },
+    {
+      "maze_id": "mazes_backtracker_100_20.npz_45",
+      "neural_nodes": 420,
+      "manhattan_nodes": 228,
+      "neural_cost": 58.0,
+      "optimal_cost": 58.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_30.npz_2",
+      "neural_nodes": 1444,
+      "manhattan_nodes": 321,
+      "neural_cost": 126.0,
+      "optimal_cost": 122.0,
+      "optimality_ratio": 1.0327868852459017
+    },
+    {
+      "maze_id": "mazes_backtracker_100_30.npz_5",
+      "neural_nodes": 393,
+      "manhattan_nodes": 409,
+      "neural_cost": 79.0,
+      "optimal_cost": 75.0,
+      "optimality_ratio": 1.0533333333333332
+    },
+    {
+      "maze_id": "mazes_backtracker_100_30.npz_6",
+      "neural_nodes": 543,
+      "manhattan_nodes": 114,
+      "neural_cost": 95.0,
+      "optimal_cost": 95.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_100_30.npz_17",
+      "neural_nodes": 695,
+      "manhattan_nodes": 106,
+      "neural_cost": 90.0,
+      "optimal_cost": 88.0,
+      "optimality_ratio": 1.0227272727272727
+    },
+    {
+      "maze_id": "mazes_backtracker_100_30.npz_41",
+      "neural_nodes": 237,
+      "manhattan_nodes": 187,
+      "neural_cost": 59.0,
+      "optimal_cost": 57.0,
+      "optimality_ratio": 1.0350877192982457
+    },
+    {
+      "maze_id": "mazes_backtracker_100_40.npz_12",
+      "neural_nodes": 616,
+      "manhattan_nodes": 611,
+      "neural_cost": 96.0,
+      "optimal_cost": 88.0,
+      "optimality_ratio": 1.0909090909090908
+    },
+    {
+      "maze_id": "mazes_backtracker_100_40.npz_18",
+      "neural_nodes": 1172,
+      "manhattan_nodes": 1774,
+      "neural_cost": 155.0,
+      "optimal_cost": 153.0,
+      "optimality_ratio": 1.0130718954248366
+    },
+    {
+      "maze_id": "mazes_backtracker_100_40.npz_28",
+      "neural_nodes": 367,
+      "manhattan_nodes": 362,
+      "neural_cost": 81.0,
+      "optimal_cost": 79.0,
+      "optimality_ratio": 1.0253164556962024
+    },
+    {
+      "maze_id": "mazes_backtracker_100_40.npz_33",
+      "neural_nodes": 1099,
+      "manhattan_nodes": 561,
+      "neural_cost": 121.0,
+      "optimal_cost": 115.0,
+      "optimality_ratio": 1.0521739130434782
+    },
+    {
+      "maze_id": "mazes_backtracker_100_40.npz_40",
+      "neural_nodes": 699,
+      "manhattan_nodes": 113,
+      "neural_cost": 89.0,
+      "optimal_cost": 85.0,
+      "optimality_ratio": 1.0470588235294118
+    },
+    {
+      "maze_id": "mazes_backtracker_20_10.npz_8",
+      "neural_nodes": 38,
+      "manhattan_nodes": 20,
+      "neural_cost": 19.0,
+      "optimal_cost": 19.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_10.npz_10",
+      "neural_nodes": 26,
+      "manhattan_nodes": 18,
+      "neural_cost": 10.0,
+      "optimal_cost": 10.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_10.npz_15",
+      "neural_nodes": 107,
+      "manhattan_nodes": 21,
+      "neural_cost": 20.0,
+      "optimal_cost": 20.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_4",
+      "neural_nodes": 99,
+      "manhattan_nodes": 50,
+      "neural_cost": 25.0,
+      "optimal_cost": 25.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_19",
+      "neural_nodes": 35,
+      "manhattan_nodes": 27,
+      "neural_cost": 14.0,
+      "optimal_cost": 14.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_23",
+      "neural_nodes": 28,
+      "manhattan_nodes": 25,
+      "neural_cost": 15.0,
+      "optimal_cost": 15.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_28",
+      "neural_nodes": 79,
+      "manhattan_nodes": 47,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_30",
+      "neural_nodes": 179,
+      "manhattan_nodes": 43,
+      "neural_cost": 30.0,
+      "optimal_cost": 30.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_32",
+      "neural_nodes": 64,
+      "manhattan_nodes": 24,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_39",
+      "neural_nodes": 35,
+      "manhattan_nodes": 16,
+      "neural_cost": 13.0,
+      "optimal_cost": 13.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_40",
+      "neural_nodes": 61,
+      "manhattan_nodes": 19,
+      "neural_cost": 18.0,
+      "optimal_cost": 18.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_43",
+      "neural_nodes": 50,
+      "manhattan_nodes": 31,
+      "neural_cost": 18.0,
+      "optimal_cost": 18.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_20.npz_49",
+      "neural_nodes": 95,
+      "manhattan_nodes": 24,
+      "neural_cost": 21.0,
+      "optimal_cost": 21.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_3",
+      "neural_nodes": 28,
+      "manhattan_nodes": 14,
+      "neural_cost": 13.0,
+      "optimal_cost": 13.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_4",
+      "neural_nodes": 38,
+      "manhattan_nodes": 30,
+      "neural_cost": 20.0,
+      "optimal_cost": 20.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_14",
+      "neural_nodes": 43,
+      "manhattan_nodes": 37,
+      "neural_cost": 25.0,
+      "optimal_cost": 25.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_16",
+      "neural_nodes": 33,
+      "manhattan_nodes": 26,
+      "neural_cost": 15.0,
+      "optimal_cost": 15.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_17",
+      "neural_nodes": 16,
+      "manhattan_nodes": 16,
+      "neural_cost": 11.0,
+      "optimal_cost": 11.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_19",
+      "neural_nodes": 23,
+      "manhattan_nodes": 12,
+      "neural_cost": 11.0,
+      "optimal_cost": 11.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_20",
+      "neural_nodes": 60,
+      "manhattan_nodes": 34,
+      "neural_cost": 27.0,
+      "optimal_cost": 27.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_26",
+      "neural_nodes": 29,
+      "manhattan_nodes": 23,
+      "neural_cost": 13.0,
+      "optimal_cost": 13.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_32",
+      "neural_nodes": 44,
+      "manhattan_nodes": 31,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_36",
+      "neural_nodes": 88,
+      "manhattan_nodes": 30,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_38",
+      "neural_nodes": 12,
+      "manhattan_nodes": 13,
+      "neural_cost": 10.0,
+      "optimal_cost": 10.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_30.npz_42",
+      "neural_nodes": 19,
+      "manhattan_nodes": 19,
+      "neural_cost": 13.0,
+      "optimal_cost": 13.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_1",
+      "neural_nodes": 46,
+      "manhattan_nodes": 49,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_2",
+      "neural_nodes": 45,
+      "manhattan_nodes": 25,
+      "neural_cost": 16.0,
+      "optimal_cost": 16.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_15",
+      "neural_nodes": 18,
+      "manhattan_nodes": 17,
+      "neural_cost": 12.0,
+      "optimal_cost": 12.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_17",
+      "neural_nodes": 25,
+      "manhattan_nodes": 28,
+      "neural_cost": 16.0,
+      "optimal_cost": 16.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_25",
+      "neural_nodes": 24,
+      "manhattan_nodes": 21,
+      "neural_cost": 15.0,
+      "optimal_cost": 15.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_29",
+      "neural_nodes": 27,
+      "manhattan_nodes": 25,
+      "neural_cost": 12.0,
+      "optimal_cost": 12.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_20_40.npz_45",
+      "neural_nodes": 75,
+      "manhattan_nodes": 83,
+      "neural_cost": 32.0,
+      "optimal_cost": 32.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_13",
+      "neural_nodes": 88,
+      "manhattan_nodes": 39,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_16",
+      "neural_nodes": 50,
+      "manhattan_nodes": 47,
+      "neural_cost": 36.0,
+      "optimal_cost": 36.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_17",
+      "neural_nodes": 65,
+      "manhattan_nodes": 22,
+      "neural_cost": 21.0,
+      "optimal_cost": 21.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_22",
+      "neural_nodes": 243,
+      "manhattan_nodes": 55,
+      "neural_cost": 34.0,
+      "optimal_cost": 34.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_34",
+      "neural_nodes": 118,
+      "manhattan_nodes": 48,
+      "neural_cost": 28.0,
+      "optimal_cost": 28.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_38",
+      "neural_nodes": 50,
+      "manhattan_nodes": 31,
+      "neural_cost": 30.0,
+      "optimal_cost": 30.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_43",
+      "neural_nodes": 142,
+      "manhattan_nodes": 30,
+      "neural_cost": 29.0,
+      "optimal_cost": 29.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_46",
+      "neural_nodes": 74,
+      "manhattan_nodes": 44,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_10.npz_48",
+      "neural_nodes": 229,
+      "manhattan_nodes": 36,
+      "neural_cost": 33.0,
+      "optimal_cost": 33.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_6",
+      "neural_nodes": 198,
+      "manhattan_nodes": 85,
+      "neural_cost": 32.0,
+      "optimal_cost": 32.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_7",
+      "neural_nodes": 104,
+      "manhattan_nodes": 27,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_8",
+      "neural_nodes": 122,
+      "manhattan_nodes": 99,
+      "neural_cost": 31.0,
+      "optimal_cost": 31.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_14",
+      "neural_nodes": 259,
+      "manhattan_nodes": 83,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_43",
+      "neural_nodes": 61,
+      "manhattan_nodes": 45,
+      "neural_cost": 21.0,
+      "optimal_cost": 21.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_46",
+      "neural_nodes": 73,
+      "manhattan_nodes": 42,
+      "neural_cost": 33.0,
+      "optimal_cost": 33.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_20.npz_47",
+      "neural_nodes": 111,
+      "manhattan_nodes": 29,
+      "neural_cost": 27.0,
+      "optimal_cost": 27.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_5",
+      "neural_nodes": 122,
+      "manhattan_nodes": 119,
+      "neural_cost": 34.0,
+      "optimal_cost": 34.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_6",
+      "neural_nodes": 119,
+      "manhattan_nodes": 44,
+      "neural_cost": 41.0,
+      "optimal_cost": 41.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_13",
+      "neural_nodes": 192,
+      "manhattan_nodes": 125,
+      "neural_cost": 60.0,
+      "optimal_cost": 60.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_29",
+      "neural_nodes": 140,
+      "manhattan_nodes": 54,
+      "neural_cost": 36.0,
+      "optimal_cost": 36.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_31",
+      "neural_nodes": 105,
+      "manhattan_nodes": 44,
+      "neural_cost": 34.0,
+      "optimal_cost": 34.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_34",
+      "neural_nodes": 154,
+      "manhattan_nodes": 51,
+      "neural_cost": 45.0,
+      "optimal_cost": 45.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_39",
+      "neural_nodes": 225,
+      "manhattan_nodes": 155,
+      "neural_cost": 40.0,
+      "optimal_cost": 40.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_40",
+      "neural_nodes": 82,
+      "manhattan_nodes": 43,
+      "neural_cost": 38.0,
+      "optimal_cost": 38.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_41",
+      "neural_nodes": 210,
+      "manhattan_nodes": 124,
+      "neural_cost": 58.0,
+      "optimal_cost": 58.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_30.npz_49",
+      "neural_nodes": 83,
+      "manhattan_nodes": 78,
+      "neural_cost": 32.0,
+      "optimal_cost": 32.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_40.npz_11",
+      "neural_nodes": 108,
+      "manhattan_nodes": 111,
+      "neural_cost": 32.0,
+      "optimal_cost": 32.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_40.npz_16",
+      "neural_nodes": 56,
+      "manhattan_nodes": 50,
+      "neural_cost": 28.0,
+      "optimal_cost": 28.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_40.npz_20",
+      "neural_nodes": 52,
+      "manhattan_nodes": 34,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_40_40.npz_22",
+      "neural_nodes": 60,
+      "manhattan_nodes": 41,
+      "neural_cost": 35.0,
+      "optimal_cost": 35.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_10.npz_25",
+      "neural_nodes": 1681,
+      "manhattan_nodes": 154,
+      "neural_cost": 87.0,
+      "optimal_cost": 87.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_10.npz_29",
+      "neural_nodes": 189,
+      "manhattan_nodes": 83,
+      "neural_cost": 36.0,
+      "optimal_cost": 36.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_10.npz_30",
+      "neural_nodes": 597,
+      "manhattan_nodes": 62,
+      "neural_cost": 52.0,
+      "optimal_cost": 52.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_10.npz_36",
+      "neural_nodes": 651,
+      "manhattan_nodes": 56,
+      "neural_cost": 54.0,
+      "optimal_cost": 54.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_10.npz_41",
+      "neural_nodes": 810,
+      "manhattan_nodes": 106,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_0",
+      "neural_nodes": 314,
+      "manhattan_nodes": 232,
+      "neural_cost": 59.0,
+      "optimal_cost": 59.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_1",
+      "neural_nodes": 430,
+      "manhattan_nodes": 133,
+      "neural_cost": 52.0,
+      "optimal_cost": 52.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_13",
+      "neural_nodes": 319,
+      "manhattan_nodes": 259,
+      "neural_cost": 50.0,
+      "optimal_cost": 50.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_24",
+      "neural_nodes": 359,
+      "manhattan_nodes": 104,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_26",
+      "neural_nodes": 253,
+      "manhattan_nodes": 47,
+      "neural_cost": 44.0,
+      "optimal_cost": 44.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_28",
+      "neural_nodes": 481,
+      "manhattan_nodes": 88,
+      "neural_cost": 48.0,
+      "optimal_cost": 48.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_31",
+      "neural_nodes": 313,
+      "manhattan_nodes": 62,
+      "neural_cost": 42.0,
+      "optimal_cost": 42.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_34",
+      "neural_nodes": 414,
+      "manhattan_nodes": 62,
+      "neural_cost": 52.0,
+      "optimal_cost": 52.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_46",
+      "neural_nodes": 952,
+      "manhattan_nodes": 177,
+      "neural_cost": 77.0,
+      "optimal_cost": 77.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_20.npz_48",
+      "neural_nodes": 452,
+      "manhattan_nodes": 102,
+      "neural_cost": 46.0,
+      "optimal_cost": 46.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_16",
+      "neural_nodes": 299,
+      "manhattan_nodes": 77,
+      "neural_cost": 64.0,
+      "optimal_cost": 64.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_28",
+      "neural_nodes": 236,
+      "manhattan_nodes": 206,
+      "neural_cost": 62.0,
+      "optimal_cost": 62.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_31",
+      "neural_nodes": 464,
+      "manhattan_nodes": 99,
+      "neural_cost": 84.0,
+      "optimal_cost": 82.0,
+      "optimality_ratio": 1.024390243902439
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_37",
+      "neural_nodes": 206,
+      "manhattan_nodes": 45,
+      "neural_cost": 37.0,
+      "optimal_cost": 37.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_40",
+      "neural_nodes": 613,
+      "manhattan_nodes": 76,
+      "neural_cost": 66.0,
+      "optimal_cost": 66.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_42",
+      "neural_nodes": 249,
+      "manhattan_nodes": 190,
+      "neural_cost": 45.0,
+      "optimal_cost": 45.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_30.npz_45",
+      "neural_nodes": 165,
+      "manhattan_nodes": 153,
+      "neural_cost": 45.0,
+      "optimal_cost": 45.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_9",
+      "neural_nodes": 652,
+      "manhattan_nodes": 544,
+      "neural_cost": 75.0,
+      "optimal_cost": 73.0,
+      "optimality_ratio": 1.0273972602739727
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_12",
+      "neural_nodes": 157,
+      "manhattan_nodes": 288,
+      "neural_cost": 63.0,
+      "optimal_cost": 63.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_20",
+      "neural_nodes": 113,
+      "manhattan_nodes": 113,
+      "neural_cost": 58.0,
+      "optimal_cost": 58.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_23",
+      "neural_nodes": 207,
+      "manhattan_nodes": 214,
+      "neural_cost": 47.0,
+      "optimal_cost": 47.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_29",
+      "neural_nodes": 137,
+      "manhattan_nodes": 163,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_39",
+      "neural_nodes": 509,
+      "manhattan_nodes": 462,
+      "neural_cost": 81.0,
+      "optimal_cost": 81.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_60_40.npz_48",
+      "neural_nodes": 473,
+      "manhattan_nodes": 393,
+      "neural_cost": 78.0,
+      "optimal_cost": 76.0,
+      "optimality_ratio": 1.0263157894736843
+    },
+    {
+      "maze_id": "mazes_backtracker_80_10.npz_10",
+      "neural_nodes": 1404,
+      "manhattan_nodes": 102,
+      "neural_cost": 79.0,
+      "optimal_cost": 79.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_10.npz_20",
+      "neural_nodes": 663,
+      "manhattan_nodes": 49,
+      "neural_cost": 48.0,
+      "optimal_cost": 48.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_10.npz_31",
+      "neural_nodes": 1639,
+      "manhattan_nodes": 109,
+      "neural_cost": 82.0,
+      "optimal_cost": 82.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_10.npz_32",
+      "neural_nodes": 668,
+      "manhattan_nodes": 67,
+      "neural_cost": 66.0,
+      "optimal_cost": 66.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_10.npz_39",
+      "neural_nodes": 1843,
+      "manhattan_nodes": 161,
+      "neural_cost": 89.0,
+      "optimal_cost": 89.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_1",
+      "neural_nodes": 458,
+      "manhattan_nodes": 60,
+      "neural_cost": 46.0,
+      "optimal_cost": 46.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_5",
+      "neural_nodes": 552,
+      "manhattan_nodes": 131,
+      "neural_cost": 52.0,
+      "optimal_cost": 52.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_7",
+      "neural_nodes": 1500,
+      "manhattan_nodes": 319,
+      "neural_cost": 92.0,
+      "optimal_cost": 90.0,
+      "optimality_ratio": 1.0222222222222221
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_12",
+      "neural_nodes": 563,
+      "manhattan_nodes": 62,
+      "neural_cost": 55.0,
+      "optimal_cost": 55.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_22",
+      "neural_nodes": 185,
+      "manhattan_nodes": 99,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_23",
+      "neural_nodes": 576,
+      "manhattan_nodes": 200,
+      "neural_cost": 66.0,
+      "optimal_cost": 62.0,
+      "optimality_ratio": 1.064516129032258
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_34",
+      "neural_nodes": 878,
+      "manhattan_nodes": 218,
+      "neural_cost": 66.0,
+      "optimal_cost": 66.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_39",
+      "neural_nodes": 626,
+      "manhattan_nodes": 209,
+      "neural_cost": 67.0,
+      "optimal_cost": 63.0,
+      "optimality_ratio": 1.0634920634920635
+    },
+    {
+      "maze_id": "mazes_backtracker_80_20.npz_49",
+      "neural_nodes": 336,
+      "manhattan_nodes": 50,
+      "neural_cost": 41.0,
+      "optimal_cost": 41.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_30.npz_4",
+      "neural_nodes": 1355,
+      "manhattan_nodes": 892,
+      "neural_cost": 110.0,
+      "optimal_cost": 96.0,
+      "optimality_ratio": 1.1458333333333333
+    },
+    {
+      "maze_id": "mazes_backtracker_80_30.npz_19",
+      "neural_nodes": 322,
+      "manhattan_nodes": 429,
+      "neural_cost": 61.0,
+      "optimal_cost": 61.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_30.npz_21",
+      "neural_nodes": 777,
+      "manhattan_nodes": 496,
+      "neural_cost": 77.0,
+      "optimal_cost": 75.0,
+      "optimality_ratio": 1.0266666666666666
+    },
+    {
+      "maze_id": "mazes_backtracker_80_30.npz_30",
+      "neural_nodes": 415,
+      "manhattan_nodes": 324,
+      "neural_cost": 61.0,
+      "optimal_cost": 57.0,
+      "optimality_ratio": 1.0701754385964912
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_10",
+      "neural_nodes": 818,
+      "manhattan_nodes": 798,
+      "neural_cost": 89.0,
+      "optimal_cost": 89.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_12",
+      "neural_nodes": 504,
+      "manhattan_nodes": 515,
+      "neural_cost": 70.0,
+      "optimal_cost": 70.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_22",
+      "neural_nodes": 212,
+      "manhattan_nodes": 111,
+      "neural_cost": 68.0,
+      "optimal_cost": 68.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_34",
+      "neural_nodes": 842,
+      "manhattan_nodes": 755,
+      "neural_cost": 95.0,
+      "optimal_cost": 91.0,
+      "optimality_ratio": 1.043956043956044
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_38",
+      "neural_nodes": 362,
+      "manhattan_nodes": 467,
+      "neural_cost": 79.0,
+      "optimal_cost": 79.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_39",
+      "neural_nodes": 628,
+      "manhattan_nodes": 669,
+      "neural_cost": 96.0,
+      "optimal_cost": 92.0,
+      "optimality_ratio": 1.0434782608695652
+    },
+    {
+      "maze_id": "mazes_backtracker_80_40.npz_40",
+      "neural_nodes": 794,
+      "manhattan_nodes": 618,
+      "neural_cost": 81.0,
+      "optimal_cost": 79.0,
+      "optimality_ratio": 1.0253164556962024
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_0",
+      "neural_nodes": 330,
+      "manhattan_nodes": 61,
+      "neural_cost": 53.0,
+      "optimal_cost": 53.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_9",
+      "neural_nodes": 1016,
+      "manhattan_nodes": 588,
+      "neural_cost": 103.0,
+      "optimal_cost": 99.0,
+      "optimality_ratio": 1.0404040404040404
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_12",
+      "neural_nodes": 489,
+      "manhattan_nodes": 286,
+      "neural_cost": 73.0,
+      "optimal_cost": 73.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_21",
+      "neural_nodes": 2178,
+      "manhattan_nodes": 307,
+      "neural_cost": 118.0,
+      "optimal_cost": 118.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_22",
+      "neural_nodes": 3550,
+      "manhattan_nodes": 451,
+      "neural_cost": 142.0,
+      "optimal_cost": 142.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_27",
+      "neural_nodes": 320,
+      "manhattan_nodes": 52,
+      "neural_cost": 51.0,
+      "optimal_cost": 51.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_32",
+      "neural_nodes": 940,
+      "manhattan_nodes": 84,
+      "neural_cost": 84.0,
+      "optimal_cost": 80.0,
+      "optimality_ratio": 1.05
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_36",
+      "neural_nodes": 1279,
+      "manhattan_nodes": 73,
+      "neural_cost": 72.0,
+      "optimal_cost": 72.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_39",
+      "neural_nodes": 872,
+      "manhattan_nodes": 72,
+      "neural_cost": 71.0,
+      "optimal_cost": 71.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_42",
+      "neural_nodes": 1483,
+      "manhattan_nodes": 123,
+      "neural_cost": 82.0,
+      "optimal_cost": 82.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_10.npz_48",
+      "neural_nodes": 756,
+      "manhattan_nodes": 58,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_2",
+      "neural_nodes": 892,
+      "manhattan_nodes": 197,
+      "neural_cost": 68.0,
+      "optimal_cost": 68.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_4",
+      "neural_nodes": 1860,
+      "manhattan_nodes": 128,
+      "neural_cost": 112.0,
+      "optimal_cost": 112.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_7",
+      "neural_nodes": 1384,
+      "manhattan_nodes": 151,
+      "neural_cost": 116.0,
+      "optimal_cost": 116.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_21",
+      "neural_nodes": 556,
+      "manhattan_nodes": 195,
+      "neural_cost": 54.0,
+      "optimal_cost": 54.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_23",
+      "neural_nodes": 703,
+      "manhattan_nodes": 63,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_41",
+      "neural_nodes": 2348,
+      "manhattan_nodes": 2035,
+      "neural_cost": 120.0,
+      "optimal_cost": 118.0,
+      "optimality_ratio": 1.0169491525423728
+    },
+    {
+      "maze_id": "mazes_perlin_100_20.npz_46",
+      "neural_nodes": 1045,
+      "manhattan_nodes": 125,
+      "neural_cost": 78.0,
+      "optimal_cost": 78.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_3",
+      "neural_nodes": 1643,
+      "manhattan_nodes": 122,
+      "neural_cost": 108.0,
+      "optimal_cost": 100.0,
+      "optimality_ratio": 1.08
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_9",
+      "neural_nodes": 1712,
+      "manhattan_nodes": 1374,
+      "neural_cost": 113.0,
+      "optimal_cost": 111.0,
+      "optimality_ratio": 1.018018018018018
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_16",
+      "neural_nodes": 1473,
+      "manhattan_nodes": 1101,
+      "neural_cost": 80.0,
+      "optimal_cost": 78.0,
+      "optimality_ratio": 1.0256410256410255
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_18",
+      "neural_nodes": 705,
+      "manhattan_nodes": 263,
+      "neural_cost": 77.0,
+      "optimal_cost": 77.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_27",
+      "neural_nodes": 1078,
+      "manhattan_nodes": 275,
+      "neural_cost": 79.0,
+      "optimal_cost": 79.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_33",
+      "neural_nodes": 425,
+      "manhattan_nodes": 63,
+      "neural_cost": 62.0,
+      "optimal_cost": 62.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_30.npz_34",
+      "neural_nodes": 770,
+      "manhattan_nodes": 232,
+      "neural_cost": 63.0,
+      "optimal_cost": 63.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_3",
+      "neural_nodes": 490,
+      "manhattan_nodes": 231,
+      "neural_cost": 71.0,
+      "optimal_cost": 69.0,
+      "optimality_ratio": 1.0289855072463767
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_4",
+      "neural_nodes": 1716,
+      "manhattan_nodes": 852,
+      "neural_cost": 128.0,
+      "optimal_cost": 128.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_5",
+      "neural_nodes": 683,
+      "manhattan_nodes": 369,
+      "neural_cost": 78.0,
+      "optimal_cost": 76.0,
+      "optimality_ratio": 1.0263157894736843
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_6",
+      "neural_nodes": 425,
+      "manhattan_nodes": 381,
+      "neural_cost": 68.0,
+      "optimal_cost": 68.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_14",
+      "neural_nodes": 671,
+      "manhattan_nodes": 485,
+      "neural_cost": 71.0,
+      "optimal_cost": 71.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_15",
+      "neural_nodes": 538,
+      "manhattan_nodes": 72,
+      "neural_cost": 68.0,
+      "optimal_cost": 68.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_100_40.npz_29",
+      "neural_nodes": 2556,
+      "manhattan_nodes": 1731,
+      "neural_cost": 146.0,
+      "optimal_cost": 140.0,
+      "optimality_ratio": 1.042857142857143
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_13",
+      "neural_nodes": 17,
+      "manhattan_nodes": 11,
+      "neural_cost": 10.0,
+      "optimal_cost": 10.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_14",
+      "neural_nodes": 22,
+      "manhattan_nodes": 13,
+      "neural_cost": 12.0,
+      "optimal_cost": 12.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_26",
+      "neural_nodes": 12,
+      "manhattan_nodes": 12,
+      "neural_cost": 11.0,
+      "optimal_cost": 11.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_31",
+      "neural_nodes": 42,
+      "manhattan_nodes": 20,
+      "neural_cost": 19.0,
+      "optimal_cost": 19.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_42",
+      "neural_nodes": 38,
+      "manhattan_nodes": 40,
+      "neural_cost": 19.0,
+      "optimal_cost": 19.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_43",
+      "neural_nodes": 64,
+      "manhattan_nodes": 20,
+      "neural_cost": 19.0,
+      "optimal_cost": 19.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_44",
+      "neural_nodes": 26,
+      "manhattan_nodes": 11,
+      "neural_cost": 10.0,
+      "optimal_cost": 10.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_10.npz_46",
+      "neural_nodes": 47,
+      "manhattan_nodes": 17,
+      "neural_cost": 13.0,
+      "optimal_cost": 13.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_2",
+      "neural_nodes": 126,
+      "manhattan_nodes": 105,
+      "neural_cost": 20.0,
+      "optimal_cost": 20.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_19",
+      "neural_nodes": 23,
+      "manhattan_nodes": 17,
+      "neural_cost": 16.0,
+      "optimal_cost": 16.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_21",
+      "neural_nodes": 54,
+      "manhattan_nodes": 41,
+      "neural_cost": 22.0,
+      "optimal_cost": 22.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_23",
+      "neural_nodes": 63,
+      "manhattan_nodes": 26,
+      "neural_cost": 21.0,
+      "optimal_cost": 21.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_28",
+      "neural_nodes": 65,
+      "manhattan_nodes": 28,
+      "neural_cost": 22.0,
+      "optimal_cost": 22.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_30",
+      "neural_nodes": 55,
+      "manhattan_nodes": 42,
+      "neural_cost": 19.0,
+      "optimal_cost": 19.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_34",
+      "neural_nodes": 25,
+      "manhattan_nodes": 12,
+      "neural_cost": 11.0,
+      "optimal_cost": 11.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_20.npz_47",
+      "neural_nodes": 37,
+      "manhattan_nodes": 25,
+      "neural_cost": 13.0,
+      "optimal_cost": 13.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_30.npz_15",
+      "neural_nodes": 60,
+      "manhattan_nodes": 31,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_30.npz_21",
+      "neural_nodes": 18,
+      "manhattan_nodes": 12,
+      "neural_cost": 11.0,
+      "optimal_cost": 11.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_30.npz_25",
+      "neural_nodes": 117,
+      "manhattan_nodes": 107,
+      "neural_cost": 25.0,
+      "optimal_cost": 25.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_30.npz_30",
+      "neural_nodes": 27,
+      "manhattan_nodes": 16,
+      "neural_cost": 15.0,
+      "optimal_cost": 15.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_30.npz_35",
+      "neural_nodes": 128,
+      "manhattan_nodes": 98,
+      "neural_cost": 26.0,
+      "optimal_cost": 26.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_40.npz_6",
+      "neural_nodes": 63,
+      "manhattan_nodes": 53,
+      "neural_cost": 20.0,
+      "optimal_cost": 20.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_40.npz_16",
+      "neural_nodes": 29,
+      "manhattan_nodes": 21,
+      "neural_cost": 19.0,
+      "optimal_cost": 19.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_20_40.npz_19",
+      "neural_nodes": 20,
+      "manhattan_nodes": 14,
+      "neural_cost": 11.0,
+      "optimal_cost": 11.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_4",
+      "neural_nodes": 330,
+      "manhattan_nodes": 51,
+      "neural_cost": 42.0,
+      "optimal_cost": 42.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_8",
+      "neural_nodes": 151,
+      "manhattan_nodes": 36,
+      "neural_cost": 35.0,
+      "optimal_cost": 35.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_15",
+      "neural_nodes": 76,
+      "manhattan_nodes": 25,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_18",
+      "neural_nodes": 120,
+      "manhattan_nodes": 27,
+      "neural_cost": 21.0,
+      "optimal_cost": 21.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_25",
+      "neural_nodes": 173,
+      "manhattan_nodes": 65,
+      "neural_cost": 31.0,
+      "optimal_cost": 31.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_27",
+      "neural_nodes": 237,
+      "manhattan_nodes": 39,
+      "neural_cost": 37.0,
+      "optimal_cost": 37.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_28",
+      "neural_nodes": 157,
+      "manhattan_nodes": 29,
+      "neural_cost": 28.0,
+      "optimal_cost": 28.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_33",
+      "neural_nodes": 138,
+      "manhattan_nodes": 24,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_10.npz_45",
+      "neural_nodes": 56,
+      "manhattan_nodes": 25,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_2",
+      "neural_nodes": 141,
+      "manhattan_nodes": 34,
+      "neural_cost": 33.0,
+      "optimal_cost": 33.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_5",
+      "neural_nodes": 48,
+      "manhattan_nodes": 33,
+      "neural_cost": 29.0,
+      "optimal_cost": 29.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_6",
+      "neural_nodes": 158,
+      "manhattan_nodes": 110,
+      "neural_cost": 29.0,
+      "optimal_cost": 29.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_11",
+      "neural_nodes": 111,
+      "manhattan_nodes": 24,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_20",
+      "neural_nodes": 410,
+      "manhattan_nodes": 354,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_21",
+      "neural_nodes": 168,
+      "manhattan_nodes": 117,
+      "neural_cost": 31.0,
+      "optimal_cost": 31.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_22",
+      "neural_nodes": 64,
+      "manhattan_nodes": 32,
+      "neural_cost": 20.0,
+      "optimal_cost": 20.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_25",
+      "neural_nodes": 139,
+      "manhattan_nodes": 37,
+      "neural_cost": 26.0,
+      "optimal_cost": 26.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_32",
+      "neural_nodes": 232,
+      "manhattan_nodes": 183,
+      "neural_cost": 36.0,
+      "optimal_cost": 36.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_33",
+      "neural_nodes": 139,
+      "manhattan_nodes": 85,
+      "neural_cost": 22.0,
+      "optimal_cost": 22.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_20.npz_39",
+      "neural_nodes": 122,
+      "manhattan_nodes": 39,
+      "neural_cost": 23.0,
+      "optimal_cost": 23.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_30.npz_4",
+      "neural_nodes": 312,
+      "manhattan_nodes": 98,
+      "neural_cost": 41.0,
+      "optimal_cost": 39.0,
+      "optimality_ratio": 1.0512820512820513
+    },
+    {
+      "maze_id": "mazes_perlin_40_30.npz_18",
+      "neural_nodes": 96,
+      "manhattan_nodes": 70,
+      "neural_cost": 24.0,
+      "optimal_cost": 24.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_30.npz_39",
+      "neural_nodes": 206,
+      "manhattan_nodes": 167,
+      "neural_cost": 32.0,
+      "optimal_cost": 32.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_40.npz_14",
+      "neural_nodes": 376,
+      "manhattan_nodes": 336,
+      "neural_cost": 54.0,
+      "optimal_cost": 54.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_40.npz_20",
+      "neural_nodes": 284,
+      "manhattan_nodes": 250,
+      "neural_cost": 52.0,
+      "optimal_cost": 52.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_40_40.npz_22",
+      "neural_nodes": 243,
+      "manhattan_nodes": 171,
+      "neural_cost": 47.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0930232558139534
+    },
+    {
+      "maze_id": "mazes_perlin_40_40.npz_23",
+      "neural_nodes": 138,
+      "manhattan_nodes": 98,
+      "neural_cost": 43.0,
+      "optimal_cost": 41.0,
+      "optimality_ratio": 1.048780487804878
+    },
+    {
+      "maze_id": "mazes_perlin_40_40.npz_31",
+      "neural_nodes": 322,
+      "manhattan_nodes": 278,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_6",
+      "neural_nodes": 319,
+      "manhattan_nodes": 34,
+      "neural_cost": 33.0,
+      "optimal_cost": 33.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_8",
+      "neural_nodes": 430,
+      "manhattan_nodes": 44,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_9",
+      "neural_nodes": 104,
+      "manhattan_nodes": 44,
+      "neural_cost": 38.0,
+      "optimal_cost": 38.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_10",
+      "neural_nodes": 142,
+      "manhattan_nodes": 47,
+      "neural_cost": 46.0,
+      "optimal_cost": 46.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_12",
+      "neural_nodes": 328,
+      "manhattan_nodes": 33,
+      "neural_cost": 32.0,
+      "optimal_cost": 32.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_14",
+      "neural_nodes": 469,
+      "manhattan_nodes": 52,
+      "neural_cost": 55.0,
+      "optimal_cost": 51.0,
+      "optimality_ratio": 1.0784313725490196
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_16",
+      "neural_nodes": 394,
+      "manhattan_nodes": 54,
+      "neural_cost": 42.0,
+      "optimal_cost": 42.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_24",
+      "neural_nodes": 997,
+      "manhattan_nodes": 84,
+      "neural_cost": 70.0,
+      "optimal_cost": 70.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_27",
+      "neural_nodes": 231,
+      "manhattan_nodes": 149,
+      "neural_cost": 48.0,
+      "optimal_cost": 48.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_32",
+      "neural_nodes": 390,
+      "manhattan_nodes": 64,
+      "neural_cost": 40.0,
+      "optimal_cost": 40.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_35",
+      "neural_nodes": 309,
+      "manhattan_nodes": 67,
+      "neural_cost": 66.0,
+      "optimal_cost": 66.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_40",
+      "neural_nodes": 350,
+      "manhattan_nodes": 182,
+      "neural_cost": 53.0,
+      "optimal_cost": 51.0,
+      "optimality_ratio": 1.0392156862745099
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_41",
+      "neural_nodes": 102,
+      "manhattan_nodes": 36,
+      "neural_cost": 35.0,
+      "optimal_cost": 35.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_10.npz_46",
+      "neural_nodes": 338,
+      "manhattan_nodes": 44,
+      "neural_cost": 42.0,
+      "optimal_cost": 42.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_4",
+      "neural_nodes": 341,
+      "manhattan_nodes": 57,
+      "neural_cost": 62.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.1071428571428572
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_5",
+      "neural_nodes": 351,
+      "manhattan_nodes": 43,
+      "neural_cost": 42.0,
+      "optimal_cost": 42.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_6",
+      "neural_nodes": 451,
+      "manhattan_nodes": 328,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_10",
+      "neural_nodes": 227,
+      "manhattan_nodes": 35,
+      "neural_cost": 34.0,
+      "optimal_cost": 34.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_12",
+      "neural_nodes": 304,
+      "manhattan_nodes": 61,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_28",
+      "neural_nodes": 639,
+      "manhattan_nodes": 178,
+      "neural_cost": 68.0,
+      "optimal_cost": 68.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_35",
+      "neural_nodes": 374,
+      "manhattan_nodes": 283,
+      "neural_cost": 49.0,
+      "optimal_cost": 49.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_40",
+      "neural_nodes": 508,
+      "manhattan_nodes": 115,
+      "neural_cost": 60.0,
+      "optimal_cost": 60.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_43",
+      "neural_nodes": 293,
+      "manhattan_nodes": 62,
+      "neural_cost": 51.0,
+      "optimal_cost": 51.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_20.npz_47",
+      "neural_nodes": 196,
+      "manhattan_nodes": 103,
+      "neural_cost": 35.0,
+      "optimal_cost": 35.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_4",
+      "neural_nodes": 192,
+      "manhattan_nodes": 101,
+      "neural_cost": 42.0,
+      "optimal_cost": 42.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_6",
+      "neural_nodes": 278,
+      "manhattan_nodes": 155,
+      "neural_cost": 70.0,
+      "optimal_cost": 68.0,
+      "optimality_ratio": 1.0294117647058822
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_7",
+      "neural_nodes": 242,
+      "manhattan_nodes": 175,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_9",
+      "neural_nodes": 180,
+      "manhattan_nodes": 143,
+      "neural_cost": 34.0,
+      "optimal_cost": 34.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_13",
+      "neural_nodes": 320,
+      "manhattan_nodes": 191,
+      "neural_cost": 62.0,
+      "optimal_cost": 60.0,
+      "optimality_ratio": 1.0333333333333334
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_16",
+      "neural_nodes": 339,
+      "manhattan_nodes": 235,
+      "neural_cost": 55.0,
+      "optimal_cost": 53.0,
+      "optimality_ratio": 1.0377358490566038
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_18",
+      "neural_nodes": 378,
+      "manhattan_nodes": 111,
+      "neural_cost": 50.0,
+      "optimal_cost": 50.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_22",
+      "neural_nodes": 457,
+      "manhattan_nodes": 270,
+      "neural_cost": 64.0,
+      "optimal_cost": 62.0,
+      "optimality_ratio": 1.032258064516129
+    },
+    {
+      "maze_id": "mazes_perlin_60_30.npz_23",
+      "neural_nodes": 257,
+      "manhattan_nodes": 187,
+      "neural_cost": 63.0,
+      "optimal_cost": 63.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_40.npz_1",
+      "neural_nodes": 572,
+      "manhattan_nodes": 507,
+      "neural_cost": 72.0,
+      "optimal_cost": 72.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_40.npz_4",
+      "neural_nodes": 494,
+      "manhattan_nodes": 279,
+      "neural_cost": 70.0,
+      "optimal_cost": 70.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_40.npz_7",
+      "neural_nodes": 402,
+      "manhattan_nodes": 199,
+      "neural_cost": 82.0,
+      "optimal_cost": 82.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_40.npz_15",
+      "neural_nodes": 378,
+      "manhattan_nodes": 287,
+      "neural_cost": 57.0,
+      "optimal_cost": 57.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_60_40.npz_18",
+      "neural_nodes": 689,
+      "manhattan_nodes": 459,
+      "neural_cost": 67.0,
+      "optimal_cost": 65.0,
+      "optimality_ratio": 1.0307692307692307
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_1",
+      "neural_nodes": 926,
+      "manhattan_nodes": 166,
+      "neural_cost": 70.0,
+      "optimal_cost": 70.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_8",
+      "neural_nodes": 870,
+      "manhattan_nodes": 466,
+      "neural_cost": 69.0,
+      "optimal_cost": 69.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_26",
+      "neural_nodes": 436,
+      "manhattan_nodes": 136,
+      "neural_cost": 61.0,
+      "optimal_cost": 59.0,
+      "optimality_ratio": 1.0338983050847457
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_29",
+      "neural_nodes": 151,
+      "manhattan_nodes": 57,
+      "neural_cost": 56.0,
+      "optimal_cost": 56.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_32",
+      "neural_nodes": 500,
+      "manhattan_nodes": 82,
+      "neural_cost": 54.0,
+      "optimal_cost": 54.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_34",
+      "neural_nodes": 1969,
+      "manhattan_nodes": 142,
+      "neural_cost": 95.0,
+      "optimal_cost": 95.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_41",
+      "neural_nodes": 940,
+      "manhattan_nodes": 61,
+      "neural_cost": 58.0,
+      "optimal_cost": 58.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_10.npz_48",
+      "neural_nodes": 336,
+      "manhattan_nodes": 59,
+      "neural_cost": 58.0,
+      "optimal_cost": 58.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_20.npz_0",
+      "neural_nodes": 504,
+      "manhattan_nodes": 84,
+      "neural_cost": 82.0,
+      "optimal_cost": 82.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_20.npz_16",
+      "neural_nodes": 314,
+      "manhattan_nodes": 96,
+      "neural_cost": 47.0,
+      "optimal_cost": 47.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_20.npz_46",
+      "neural_nodes": 248,
+      "manhattan_nodes": 142,
+      "neural_cost": 46.0,
+      "optimal_cost": 46.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_30.npz_2",
+      "neural_nodes": 588,
+      "manhattan_nodes": 167,
+      "neural_cost": 63.0,
+      "optimal_cost": 63.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_30.npz_3",
+      "neural_nodes": 377,
+      "manhattan_nodes": 279,
+      "neural_cost": 65.0,
+      "optimal_cost": 65.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_30.npz_11",
+      "neural_nodes": 390,
+      "manhattan_nodes": 52,
+      "neural_cost": 43.0,
+      "optimal_cost": 43.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_30.npz_21",
+      "neural_nodes": 984,
+      "manhattan_nodes": 97,
+      "neural_cost": 92.0,
+      "optimal_cost": 92.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_30.npz_36",
+      "neural_nodes": 1072,
+      "manhattan_nodes": 718,
+      "neural_cost": 90.0,
+      "optimal_cost": 84.0,
+      "optimality_ratio": 1.0714285714285714
+    },
+    {
+      "maze_id": "mazes_perlin_80_30.npz_39",
+      "neural_nodes": 732,
+      "manhattan_nodes": 613,
+      "neural_cost": 73.0,
+      "optimal_cost": 73.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_40.npz_8",
+      "neural_nodes": 318,
+      "manhattan_nodes": 237,
+      "neural_cost": 57.0,
+      "optimal_cost": 57.0,
+      "optimality_ratio": 1.0
+    },
+    {
+      "maze_id": "mazes_perlin_80_40.npz_13",
+      "neural_nodes": 1656,
+      "manhattan_nodes": 1281,
+      "neural_cost": 114.0,
+      "optimal_cost": 112.0,
+      "optimality_ratio": 1.0178571428571428
+    },
+    {
+      "maze_id": "mazes_perlin_80_40.npz_26",
+      "neural_nodes": 1064,
+      "manhattan_nodes": 975,
+      "neural_cost": 109.0,
+      "optimal_cost": 105.0,
+      "optimality_ratio": 1.0380952380952382
+    }
+  ]
+}
