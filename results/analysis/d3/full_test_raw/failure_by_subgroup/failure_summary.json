@@ -1,0 +1,23 @@
+{
+  "comparisons": [
+    {
+      "baseline": "manhattan",
+      "treatment": "neural_torch_raw",
+      "n_matched_mazes": 282,
+      "baseline_mean_nodes": 180.79432624113474,
+      "treatment_mean_nodes": 498.57801418439715,
+      "mean_node_difference_treatment_minus_baseline": 317.7836879432624,
+      "mean_node_difference_95pct_bootstrap_ci": [
+        256.52136524822697,
+        385.5156914893617
+      ],
+      "mean_expansion_ratio": 3.8513255645491054,
+      "treatment_better_count": 15,
+      "equal_count": 4,
+      "treatment_worse_count": 263,
+      "wilcoxon_p_value": 5.8127071753503335e-43,
+      "baseline_mean_optimality_ratio": 1.0,
+      "treatment_mean_optimality_ratio": 1.0082045469695307
+    }
+  ]
+}

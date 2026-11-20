@@ -1,0 +1,34 @@
+% Deliverable 3 fresh-start draft. Does not modify or replace any D2 report file.
+% This section should only be integrated into report/main.tex after the D3
+% experiments have been re-run and the tables reviewed for provenance.
+\section{Phase 5: Comparative Analysis and Failure Diagnostics}
+\label{sec:d3-phase5}
+
+\subsection{Research Questions and Method}
+The purpose of this phase is to evaluate the search behaviour of learned
+heuristics relative to Manhattan A$^\ast$ on the same held-out mazes. It
+separates prediction quality from search performance and records the exact
+model backend, trained-weight artefact, split, and experimental settings.
+
+\subsection{Paired Search Comparisons}
+% After running scripts/failure_analysis.py and scripts/make_phase5_report_assets.py:
+% \input{report/generated/d3/paired_table.tex}
+% ADD: discussion of paired differences, runtime, path optimality, CI and p-values.
+
+\subsection{Feature Ablations}
+% After running scripts/run_feature_ablation.py and regenerating tables:
+% \input{report/generated/d3/feature_table.tex}
+% ADD: compare geometry-only and local-wall-context features with equal budgets.
+
+\subsection{Heuristic Consistency and Error Patterns}
+% ADD: generated figures and measurements from the trained model under study.
+% Consider adjacent-cell consistency, overestimation, maze density and dead ends.
+
+\subsection{Checkpoint Provenance and Reproducibility}
+% ADD: results/analysis/d3/torch_checkpoint_audit.json, exact SHA256 and metadata.
+% Distinguish the original D2 multi-seed training from the separately benchmarked
+% scikit-learn fallback. Do not describe trained checkpoints as smoke artefacts.
+
+\subsection{Interpretation and Limitations}
+% ADD ONLY AFTER VALIDATING NEW EXPERIMENTS.
+% A poor search result is still scientifically useful if the analysis explains it.

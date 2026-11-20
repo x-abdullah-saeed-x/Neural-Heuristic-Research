@@ -1,0 +1,31 @@
+{
+  "maze_index": 0,
+  "maze_id": "mazes_backtracker_100_10.npz_5",
+  "optimal_cost": 67.0,
+  "results": {
+    "dijkstra": {
+      "found": true,
+      "cost": 67.0,
+      "nodes_expanded": 4526,
+      "runtime_ms": 22.287600000709062
+    },
+    "manhattan": {
+      "found": true,
+      "cost": 67.0,
+      "nodes_expanded": 236,
+      "runtime_ms": 1.2141999995947117
+    },
+    "oracle": {
+      "found": true,
+      "cost": 67.0,
+      "nodes_expanded": 68,
+      "runtime_ms": 0.44270000034885015
+    },
+    "torch_raw": {
+      "found": true,
+      "cost": 71.0,
+      "nodes_expanded": 703,
+      "runtime_ms": 5.078199999843491
+    }
+  }
+}

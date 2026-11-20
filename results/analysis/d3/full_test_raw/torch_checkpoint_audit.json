@@ -1,0 +1,23 @@
+{
+  "checkpoint_name": "neural_heuristic_seed42.pt",
+  "sha256": "86565d7891f40b813879e1fe0da3c23185ae2b1dc2fa2b0e624690b2b94d6da4",
+  "seed": 42,
+  "git_commit": "d25e1bdcfbac0844dc1df368ac34298e0adbf7b4",
+  "best_epoch": 6,
+  "val_mae_normalized": 0.051611756446506035,
+  "configured_epochs": 20,
+  "training_cells_per_epoch": null,
+  "architecture": {
+    "input_dim": 29,
+    "hidden_dims": [
+      256,
+      256,
+      128
+    ],
+    "dropout": 0.1,
+    "activation": "relu",
+    "n_bins": 10
+  },
+  "model_parameter_count": 107787,
+  "note": "Report these checkpoint metadata as observed, not as a smoke-test assumption."
+}

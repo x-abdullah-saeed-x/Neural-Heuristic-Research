@@ -1,0 +1,72 @@
+[
+  {
+    "variant": "full_29",
+    "n_features": 29,
+    "train_cells": 5000,
+    "test_cells": 3000,
+    "epochs_run": 15,
+    "mae_normalized": 0.11000178754329681,
+    "r2": 0.7920200824737549,
+    "mazes_evaluated": 8,
+    "neural_mean_nodes": 3326.625,
+    "manhattan_mean_nodes": 201.125,
+    "mean_optimality_ratio": 1.0800098675800442,
+    "neural_to_manhattan_nodes_ratio": 20.834679346025933
+  },
+  {
+    "variant": "without_wall_window",
+    "n_features": 4,
+    "train_cells": 5000,
+    "test_cells": 3000,
+    "epochs_run": 15,
+    "mae_normalized": 0.0848611369729042,
+    "r2": 0.827094554901123,
+    "mazes_evaluated": 8,
+    "neural_mean_nodes": 3178.75,
+    "manhattan_mean_nodes": 201.125,
+    "mean_optimality_ratio": 1.0037313432835822,
+    "neural_to_manhattan_nodes_ratio": 18.304189583397314
+  },
+  {
+    "variant": "goal_offsets_only",
+    "n_features": 2,
+    "train_cells": 5000,
+    "test_cells": 3000,
+    "epochs_run": 15,
+    "mae_normalized": 0.08507230132818222,
+    "r2": 0.8330854773521423,
+    "mazes_evaluated": 8,
+    "neural_mean_nodes": 2984.75,
+    "manhattan_mean_nodes": 201.125,
+    "mean_optimality_ratio": 1.0,
+    "neural_to_manhattan_nodes_ratio": 17.013893421779844
+  },
+  {
+    "variant": "without_goal_offsets",
+    "n_features": 27,
+    "train_cells": 5000,
+    "test_cells": 3000,
+    "epochs_run": 15,
+    "mae_normalized": 0.3043554425239563,
+    "r2": -0.014592409133911133,
+    "mazes_evaluated": 8,
+    "neural_mean_nodes": 6835.0,
+    "manhattan_mean_nodes": 201.125,
+    "mean_optimality_ratio": 1.0811202277254721,
+    "neural_to_manhattan_nodes_ratio": 43.801281199909916
+  },
+  {
+    "variant": "without_coordinates",
+    "n_features": 27,
+    "train_cells": 5000,
+    "test_cells": 3000,
+    "epochs_run": 15,
+    "mae_normalized": 0.10375751554965973,
+    "r2": 0.7983502149581909,
+    "mazes_evaluated": 8,
+    "neural_mean_nodes": 3595.25,
+    "manhattan_mean_nodes": 201.125,
+    "mean_optimality_ratio": 1.1058685866927733,
+    "neural_to_manhattan_nodes_ratio": 22.097577192815265
+  }
+]

@@ -1,0 +1,2 @@
+baseline,treatment,n_matched_mazes,baseline_mean_nodes,treatment_mean_nodes,mean_node_difference_treatment_minus_baseline,mean_expansion_ratio,treatment_better_count,equal_count,treatment_worse_count,wilcoxon_p_value,baseline_mean_optimality_ratio,treatment_mean_optimality_ratio
+manhattan,neural_torch_raw,282,180.79432624113474,498.57801418439715,317.7836879432624,3.8513255645491054,15,4,263,5.8127071753503335e-43,1.0,1.0082045469695307

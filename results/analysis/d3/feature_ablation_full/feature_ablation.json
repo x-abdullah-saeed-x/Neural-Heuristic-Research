@@ -1,0 +1,72 @@
+[
+  {
+    "variant": "full_29",
+    "n_features": 29,
+    "train_cells": 30000,
+    "test_cells": 30000,
+    "epochs_run": 28,
+    "mae_normalized": 0.0774047002196312,
+    "r2": 0.8504018187522888,
+    "mazes_evaluated": 282,
+    "neural_mean_nodes": 558.581560283688,
+    "manhattan_mean_nodes": 180.79432624113474,
+    "mean_optimality_ratio": 1.0355019097166325,
+    "neural_to_manhattan_nodes_ratio": 4.100691981609794
+  },
+  {
+    "variant": "without_wall_window",
+    "n_features": 4,
+    "train_cells": 30000,
+    "test_cells": 30000,
+    "epochs_run": 24,
+    "mae_normalized": 0.07695138454437256,
+    "r2": 0.8441944718360901,
+    "mazes_evaluated": 282,
+    "neural_mean_nodes": 449.76241134751774,
+    "manhattan_mean_nodes": 180.79432624113474,
+    "mean_optimality_ratio": 1.0003446685463937,
+    "neural_to_manhattan_nodes_ratio": 3.357005563270194
+  },
+  {
+    "variant": "goal_offsets_only",
+    "n_features": 2,
+    "train_cells": 30000,
+    "test_cells": 30000,
+    "epochs_run": 16,
+    "mae_normalized": 0.07859300076961517,
+    "r2": 0.8451796770095825,
+    "mazes_evaluated": 282,
+    "neural_mean_nodes": 358.58156028368796,
+    "manhattan_mean_nodes": 180.79432624113474,
+    "mean_optimality_ratio": 1.0006040594588337,
+    "neural_to_manhattan_nodes_ratio": 2.697336062326959
+  },
+  {
+    "variant": "without_goal_offsets",
+    "n_features": 27,
+    "train_cells": 30000,
+    "test_cells": 30000,
+    "epochs_run": 20,
+    "mae_normalized": 0.29759398102760315,
+    "r2": 0.04608350992202759,
+    "mazes_evaluated": 282,
+    "neural_mean_nodes": 2044.113475177305,
+    "manhattan_mean_nodes": 180.79432624113474,
+    "mean_optimality_ratio": 1.0517915681270757,
+    "neural_to_manhattan_nodes_ratio": 18.180368984088975
+  },
+  {
+    "variant": "without_coordinates",
+    "n_features": 27,
+    "train_cells": 30000,
+    "test_cells": 30000,
+    "epochs_run": 28,
+    "mae_normalized": 0.07947967201471329,
+    "r2": 0.8489910960197449,
+    "mazes_evaluated": 282,
+    "neural_mean_nodes": 561.0567375886525,
+    "manhattan_mean_nodes": 180.79432624113474,
+    "mean_optimality_ratio": 1.0408709165239214,
+    "neural_to_manhattan_nodes_ratio": 4.116565036243267
+  }
+]
